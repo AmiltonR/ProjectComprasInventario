@@ -1,0 +1,1217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="comprasInventarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="archivos_cotizaciones">
+          <Key>
+            <PropertyRef Name="ID_archivos_cotizaciones" />
+          </Key>
+          <Property Name="ID_archivos_cotizaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreArchivo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="archivo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="id_tipoCotizacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cotizacion_proveedor">
+          <Key>
+            <PropertyRef Name="ID_cotizacion_proveedor" />
+          </Key>
+          <Property Name="ID_cotizacion_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cotizacion" Type="int" Nullable="false" />
+          <Property Name="id_cotizacionRecibida" Type="int" />
+          <Property Name="id_proveedor" Type="int" Nullable="false" />
+          <Property Name="id_estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cotizaciones">
+          <Key>
+            <PropertyRef Name="ID_cotizacion" />
+          </Key>
+          <Property Name="ID_cotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_archivoCotizacion" Type="int" Nullable="false" />
+          <Property Name="id_estado" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="ID_departamento" />
+          </Key>
+          <Property Name="ID_departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_departamento" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estado_cotizacion">
+          <Key>
+            <PropertyRef Name="ID_estado_cotizacion" />
+          </Key>
+          <Property Name="ID_estado_cotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado_cotizacion" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estado_cotizacion_proveedor">
+          <Key>
+            <PropertyRef Name="ID_estado_cotizacion_proveedor" />
+          </Key>
+          <Property Name="ID_estado_cotizacion_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado_cotizacion_proveedor" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estado_ordenCompra">
+          <Key>
+            <PropertyRef Name="ID_estadoOrdenCompra" />
+          </Key>
+          <Property Name="ID_estadoOrdenCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estadoORdenCompra" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="estado_solicitud">
+          <Key>
+            <PropertyRef Name="ID_estado_solicitud" />
+          </Key>
+          <Property Name="ID_estado_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado_solicitud" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordenCompra">
+          <Key>
+            <PropertyRef Name="ID_orden_compra" />
+          </Key>
+          <Property Name="ID_orden_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cotizacionRespuesta" Type="int" Nullable="false" />
+          <Property Name="id_estado" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="proveedores">
+          <Key>
+            <PropertyRef Name="ID_proveedor" />
+          </Key>
+          <Property Name="ID_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proveedor" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="ID_rol" />
+          </Key>
+          <Property Name="ID_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rol" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="solicitud">
+          <Key>
+            <PropertyRef Name="ID_solicitud" />
+          </Key>
+          <Property Name="ID_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_suministro" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="id_estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="solicitud_cotizacion">
+          <Key>
+            <PropertyRef Name="ID_solicitud_cotizacion" />
+          </Key>
+          <Property Name="ID_solicitud_cotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_solicitud" Type="int" Nullable="false" />
+          <Property Name="id_cotizacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="suministros">
+          <Key>
+            <PropertyRef Name="ID_suministro" />
+          </Key>
+          <Property Name="ID_suministro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreSuministro" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="30" />
+          <Property Name="modelo" Type="varchar" MaxLength="30" />
+          <Property Name="precio" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tipoCotizacion">
+          <Key>
+            <PropertyRef Name="ID_tipoCotizacion" />
+          </Key>
+          <Property Name="ID_tipoCotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoCotizacion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="ID_usuario" />
+          </Key>
+          <Property Name="ID_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="clave" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_departamento" Type="int" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_archivosCotizaciones_tipoCotizacion">
+          <End Role="tipoCotizacion" Type="Self.tipoCotizacion" Multiplicity="1" />
+          <End Role="archivos_cotizaciones" Type="Self.archivos_cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoCotizacion">
+              <PropertyRef Name="ID_tipoCotizacion" />
+            </Principal>
+            <Dependent Role="archivos_cotizaciones">
+              <PropertyRef Name="id_tipoCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacion_ArchivoCotizacion">
+          <End Role="archivos_cotizaciones" Type="Self.archivos_cotizaciones" Multiplicity="1" />
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="archivos_cotizaciones">
+              <PropertyRef Name="ID_archivos_cotizaciones" />
+            </Principal>
+            <Dependent Role="cotizaciones">
+              <PropertyRef Name="id_archivoCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacion_estadoCotizacion">
+          <End Role="estado_cotizacion" Type="Self.estado_cotizacion" Multiplicity="1" />
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_cotizacion">
+              <PropertyRef Name="ID_estado_cotizacion" />
+            </Principal>
+            <Dependent Role="cotizaciones">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacion_usuarioTecnico">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="ID_usuario" />
+            </Principal>
+            <Dependent Role="cotizaciones">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacionProveedor_cotizacion">
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cotizaciones">
+              <PropertyRef Name="ID_cotizacion" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_cotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacionProveedor_proveedor">
+          <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="ID_proveedor" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacionRecibida_archivosCotizaciones">
+          <End Role="archivos_cotizaciones" Type="Self.archivos_cotizaciones" Multiplicity="0..1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="archivos_cotizaciones">
+              <PropertyRef Name="ID_archivos_cotizaciones" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_cotizacionRecibida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoCotizacion_estadosCotizacionProveedor">
+          <End Role="estado_cotizacion_proveedor" Type="Self.estado_cotizacion_proveedor" Multiplicity="1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_cotizacion_proveedor">
+              <PropertyRef Name="ID_estado_cotizacion_proveedor" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordenCompra_cotizacionRespuesta">
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="1" />
+          <End Role="ordenCompra" Type="Self.ordenCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cotizacion_proveedor">
+              <PropertyRef Name="ID_cotizacion_proveedor" />
+            </Principal>
+            <Dependent Role="ordenCompra">
+              <PropertyRef Name="id_cotizacionRespuesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordenCompra_estado">
+          <End Role="estado_ordenCompra" Type="Self.estado_ordenCompra" Multiplicity="1" />
+          <End Role="ordenCompra" Type="Self.ordenCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_ordenCompra">
+              <PropertyRef Name="ID_estadoOrdenCompra" />
+            </Principal>
+            <Dependent Role="ordenCompra">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitud_estado">
+          <End Role="estado_solicitud" Type="Self.estado_solicitud" Multiplicity="1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_solicitud">
+              <PropertyRef Name="ID_estado_solicitud" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitud_suministro">
+          <End Role="suministros" Type="Self.suministros" Multiplicity="1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suministros">
+              <PropertyRef Name="ID_suministro" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_suministro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitudCotizacion_cotizaciones">
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="1" />
+          <End Role="solicitud_cotizacion" Type="Self.solicitud_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cotizaciones">
+              <PropertyRef Name="ID_cotizacion" />
+            </Principal>
+            <Dependent Role="solicitud_cotizacion">
+              <PropertyRef Name="id_cotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitudCotizacion_solicitud">
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="1" />
+          <End Role="solicitud_cotizacion" Type="Self.solicitud_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitud">
+              <PropertyRef Name="ID_solicitud" />
+            </Principal>
+            <Dependent Role="solicitud_cotizacion">
+              <PropertyRef Name="id_solicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_departamento">
+          <End Role="departamentos" Type="Self.departamentos" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departamentos">
+              <PropertyRef Name="ID_departamento" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="id_departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_rol">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="ID_rol" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="comprasInventarioModelStoreContainer">
+          <EntitySet Name="archivos_cotizaciones" EntityType="Self.archivos_cotizaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizacion_proveedor" EntityType="Self.cotizacion_proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizaciones" EntityType="Self.cotizaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_cotizacion" EntityType="Self.estado_cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_cotizacion_proveedor" EntityType="Self.estado_cotizacion_proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_ordenCompra" EntityType="Self.estado_ordenCompra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_solicitud" EntityType="Self.estado_solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ordenCompra" EntityType="Self.ordenCompra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="solicitud" EntityType="Self.solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="solicitud_cotizacion" EntityType="Self.solicitud_cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suministros" EntityType="Self.suministros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoCotizacion" EntityType="Self.tipoCotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_archivosCotizaciones_tipoCotizacion" Association="Self.FK_archivosCotizaciones_tipoCotizacion">
+            <End Role="tipoCotizacion" EntitySet="tipoCotizacion" />
+            <End Role="archivos_cotizaciones" EntitySet="archivos_cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacion_ArchivoCotizacion" Association="Self.FK_cotizacion_ArchivoCotizacion">
+            <End Role="archivos_cotizaciones" EntitySet="archivos_cotizaciones" />
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacion_estadoCotizacion" Association="Self.FK_cotizacion_estadoCotizacion">
+            <End Role="estado_cotizacion" EntitySet="estado_cotizacion" />
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacion_usuarioTecnico" Association="Self.FK_cotizacion_usuarioTecnico">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacionProveedor_cotizacion" Association="Self.FK_cotizacionProveedor_cotizacion">
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacionProveedor_proveedor" Association="Self.FK_cotizacionProveedor_proveedor">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacionRecibida_archivosCotizaciones" Association="Self.FK_cotizacionRecibida_archivosCotizaciones">
+            <End Role="archivos_cotizaciones" EntitySet="archivos_cotizaciones" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoCotizacion_estadosCotizacionProveedor" Association="Self.FK_estadoCotizacion_estadosCotizacionProveedor">
+            <End Role="estado_cotizacion_proveedor" EntitySet="estado_cotizacion_proveedor" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordenCompra_cotizacionRespuesta" Association="Self.FK_ordenCompra_cotizacionRespuesta">
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+            <End Role="ordenCompra" EntitySet="ordenCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordenCompra_estado" Association="Self.FK_ordenCompra_estado">
+            <End Role="estado_ordenCompra" EntitySet="estado_ordenCompra" />
+            <End Role="ordenCompra" EntitySet="ordenCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitud_estado" Association="Self.FK_solicitud_estado">
+            <End Role="estado_solicitud" EntitySet="estado_solicitud" />
+            <End Role="solicitud" EntitySet="solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitud_suministro" Association="Self.FK_solicitud_suministro">
+            <End Role="suministros" EntitySet="suministros" />
+            <End Role="solicitud" EntitySet="solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitudCotizacion_cotizaciones" Association="Self.FK_solicitudCotizacion_cotizaciones">
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+            <End Role="solicitud_cotizacion" EntitySet="solicitud_cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitudCotizacion_solicitud" Association="Self.FK_solicitudCotizacion_solicitud">
+            <End Role="solicitud" EntitySet="solicitud" />
+            <End Role="solicitud_cotizacion" EntitySet="solicitud_cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_departamento" Association="Self.FK_usuarios_departamento">
+            <End Role="departamentos" EntitySet="departamentos" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_rol" Association="Self.FK_usuarios_rol">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="comprasInventarioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="archivos_cotizaciones">
+          <Key>
+            <PropertyRef Name="ID_archivos_cotizaciones" />
+          </Key>
+          <Property Name="ID_archivos_cotizaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreArchivo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="archivo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="id_tipoCotizacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tipoCotizacion" Relationship="Self.FK_archivosCotizaciones_tipoCotizacion" FromRole="archivos_cotizaciones" ToRole="tipoCotizacion" />
+          <NavigationProperty Name="cotizaciones" Relationship="Self.FK_cotizacion_ArchivoCotizacion" FromRole="archivos_cotizaciones" ToRole="cotizaciones" />
+          <NavigationProperty Name="cotizacion_proveedor" Relationship="Self.FK_cotizacionRecibida_archivosCotizaciones" FromRole="archivos_cotizaciones" ToRole="cotizacion_proveedor" />
+        </EntityType>
+        <EntityType Name="cotizacion_proveedor">
+          <Key>
+            <PropertyRef Name="ID_cotizacion_proveedor" />
+          </Key>
+          <Property Name="ID_cotizacion_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_cotizacion" Type="Int32" Nullable="false" />
+          <Property Name="id_cotizacionRecibida" Type="Int32" />
+          <Property Name="id_proveedor" Type="Int32" Nullable="false" />
+          <Property Name="id_estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="archivos_cotizaciones" Relationship="Self.FK_cotizacionRecibida_archivosCotizaciones" FromRole="cotizacion_proveedor" ToRole="archivos_cotizaciones" />
+          <NavigationProperty Name="cotizaciones" Relationship="Self.FK_cotizacionProveedor_cotizacion" FromRole="cotizacion_proveedor" ToRole="cotizaciones" />
+          <NavigationProperty Name="proveedores" Relationship="Self.FK_cotizacionProveedor_proveedor" FromRole="cotizacion_proveedor" ToRole="proveedores" />
+          <NavigationProperty Name="estado_cotizacion_proveedor" Relationship="Self.FK_estadoCotizacion_estadosCotizacionProveedor" FromRole="cotizacion_proveedor" ToRole="estado_cotizacion_proveedor" />
+          <NavigationProperty Name="ordenCompra" Relationship="Self.FK_ordenCompra_cotizacionRespuesta" FromRole="cotizacion_proveedor" ToRole="ordenCompra" />
+        </EntityType>
+        <EntityType Name="cotizaciones">
+          <Key>
+            <PropertyRef Name="ID_cotizacion" />
+          </Key>
+          <Property Name="ID_cotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_archivoCotizacion" Type="Int32" Nullable="false" />
+          <Property Name="id_estado" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="archivos_cotizaciones" Relationship="Self.FK_cotizacion_ArchivoCotizacion" FromRole="cotizaciones" ToRole="archivos_cotizaciones" />
+          <NavigationProperty Name="cotizacion_proveedor" Relationship="Self.FK_cotizacionProveedor_cotizacion" FromRole="cotizaciones" ToRole="cotizacion_proveedor" />
+          <NavigationProperty Name="estado_cotizacion" Relationship="Self.FK_cotizacion_estadoCotizacion" FromRole="cotizaciones" ToRole="estado_cotizacion" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_cotizacion_usuarioTecnico" FromRole="cotizaciones" ToRole="usuarios" />
+          <NavigationProperty Name="solicitud_cotizacion" Relationship="Self.FK_solicitudCotizacion_cotizaciones" FromRole="cotizaciones" ToRole="solicitud_cotizacion" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="ID_departamento" />
+          </Key>
+          <Property Name="ID_departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuarios_departamento" FromRole="departamentos" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="estado_cotizacion">
+          <Key>
+            <PropertyRef Name="ID_estado_cotizacion" />
+          </Key>
+          <Property Name="ID_estado_cotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado_cotizacion1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cotizaciones" Relationship="Self.FK_cotizacion_estadoCotizacion" FromRole="estado_cotizacion" ToRole="cotizaciones" />
+        </EntityType>
+        <EntityType Name="estado_cotizacion_proveedor">
+          <Key>
+            <PropertyRef Name="ID_estado_cotizacion_proveedor" />
+          </Key>
+          <Property Name="ID_estado_cotizacion_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado_cotizacion_proveedor1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cotizacion_proveedor" Relationship="Self.FK_estadoCotizacion_estadosCotizacionProveedor" FromRole="estado_cotizacion_proveedor" ToRole="cotizacion_proveedor" />
+        </EntityType>
+        <EntityType Name="estado_ordenCompra">
+          <Key>
+            <PropertyRef Name="ID_estadoOrdenCompra" />
+          </Key>
+          <Property Name="ID_estadoOrdenCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estadoORdenCompra" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ordenCompra" Relationship="Self.FK_ordenCompra_estado" FromRole="estado_ordenCompra" ToRole="ordenCompra" />
+        </EntityType>
+        <EntityType Name="estado_solicitud">
+          <Key>
+            <PropertyRef Name="ID_estado_solicitud" />
+          </Key>
+          <Property Name="ID_estado_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado_solicitud1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="solicitud" Relationship="Self.FK_solicitud_estado" FromRole="estado_solicitud" ToRole="solicitud" />
+        </EntityType>
+        <EntityType Name="ordenCompra">
+          <Key>
+            <PropertyRef Name="ID_orden_compra" />
+          </Key>
+          <Property Name="ID_orden_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_cotizacionRespuesta" Type="Int32" Nullable="false" />
+          <Property Name="id_estado" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="cotizacion_proveedor" Relationship="Self.FK_ordenCompra_cotizacionRespuesta" FromRole="ordenCompra" ToRole="cotizacion_proveedor" />
+          <NavigationProperty Name="estado_ordenCompra" Relationship="Self.FK_ordenCompra_estado" FromRole="ordenCompra" ToRole="estado_ordenCompra" />
+        </EntityType>
+        <EntityType Name="proveedores">
+          <Key>
+            <PropertyRef Name="ID_proveedor" />
+          </Key>
+          <Property Name="ID_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cotizacion_proveedor" Relationship="Self.FK_cotizacionProveedor_proveedor" FromRole="proveedores" ToRole="cotizacion_proveedor" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="ID_rol" />
+          </Key>
+          <Property Name="ID_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuarios_rol" FromRole="roles" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="solicitud">
+          <Key>
+            <PropertyRef Name="ID_solicitud" />
+          </Key>
+          <Property Name="ID_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_suministro" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Double" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="id_estado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estado_solicitud" Relationship="Self.FK_solicitud_estado" FromRole="solicitud" ToRole="estado_solicitud" />
+          <NavigationProperty Name="suministros" Relationship="Self.FK_solicitud_suministro" FromRole="solicitud" ToRole="suministros" />
+          <NavigationProperty Name="solicitud_cotizacion" Relationship="Self.FK_solicitudCotizacion_solicitud" FromRole="solicitud" ToRole="solicitud_cotizacion" />
+        </EntityType>
+        <EntityType Name="solicitud_cotizacion">
+          <Key>
+            <PropertyRef Name="ID_solicitud_cotizacion" />
+          </Key>
+          <Property Name="ID_solicitud_cotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_solicitud" Type="Int32" Nullable="false" />
+          <Property Name="id_cotizacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cotizaciones" Relationship="Self.FK_solicitudCotizacion_cotizaciones" FromRole="solicitud_cotizacion" ToRole="cotizaciones" />
+          <NavigationProperty Name="solicitud" Relationship="Self.FK_solicitudCotizacion_solicitud" FromRole="solicitud_cotizacion" ToRole="solicitud" />
+        </EntityType>
+        <EntityType Name="suministros">
+          <Key>
+            <PropertyRef Name="ID_suministro" />
+          </Key>
+          <Property Name="ID_suministro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreSuministro" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="modelo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <NavigationProperty Name="solicitud" Relationship="Self.FK_solicitud_suministro" FromRole="suministros" ToRole="solicitud" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tipoCotizacion">
+          <Key>
+            <PropertyRef Name="ID_tipoCotizacion" />
+          </Key>
+          <Property Name="ID_tipoCotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoCotizacion1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="archivos_cotizaciones" Relationship="Self.FK_archivosCotizaciones_tipoCotizacion" FromRole="tipoCotizacion" ToRole="archivos_cotizaciones" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="ID_usuario" />
+          </Key>
+          <Property Name="ID_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_departamento" Type="Int32" Nullable="false" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cotizaciones" Relationship="Self.FK_cotizacion_usuarioTecnico" FromRole="usuarios" ToRole="cotizaciones" />
+          <NavigationProperty Name="departamentos" Relationship="Self.FK_usuarios_departamento" FromRole="usuarios" ToRole="departamentos" />
+          <NavigationProperty Name="roles" Relationship="Self.FK_usuarios_rol" FromRole="usuarios" ToRole="roles" />
+        </EntityType>
+        <Association Name="FK_archivosCotizaciones_tipoCotizacion">
+          <End Role="tipoCotizacion" Type="Self.tipoCotizacion" Multiplicity="1" />
+          <End Role="archivos_cotizaciones" Type="Self.archivos_cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoCotizacion">
+              <PropertyRef Name="ID_tipoCotizacion" />
+            </Principal>
+            <Dependent Role="archivos_cotizaciones">
+              <PropertyRef Name="id_tipoCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacion_ArchivoCotizacion">
+          <End Role="archivos_cotizaciones" Type="Self.archivos_cotizaciones" Multiplicity="1" />
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="archivos_cotizaciones">
+              <PropertyRef Name="ID_archivos_cotizaciones" />
+            </Principal>
+            <Dependent Role="cotizaciones">
+              <PropertyRef Name="id_archivoCotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacionRecibida_archivosCotizaciones">
+          <End Role="archivos_cotizaciones" Type="Self.archivos_cotizaciones" Multiplicity="0..1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="archivos_cotizaciones">
+              <PropertyRef Name="ID_archivos_cotizaciones" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_cotizacionRecibida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacionProveedor_cotizacion">
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cotizaciones">
+              <PropertyRef Name="ID_cotizacion" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_cotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacionProveedor_proveedor">
+          <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="ID_proveedor" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estadoCotizacion_estadosCotizacionProveedor">
+          <End Role="estado_cotizacion_proveedor" Type="Self.estado_cotizacion_proveedor" Multiplicity="1" />
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_cotizacion_proveedor">
+              <PropertyRef Name="ID_estado_cotizacion_proveedor" />
+            </Principal>
+            <Dependent Role="cotizacion_proveedor">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordenCompra_cotizacionRespuesta">
+          <End Role="cotizacion_proveedor" Type="Self.cotizacion_proveedor" Multiplicity="1" />
+          <End Role="ordenCompra" Type="Self.ordenCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cotizacion_proveedor">
+              <PropertyRef Name="ID_cotizacion_proveedor" />
+            </Principal>
+            <Dependent Role="ordenCompra">
+              <PropertyRef Name="id_cotizacionRespuesta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacion_estadoCotizacion">
+          <End Role="estado_cotizacion" Type="Self.estado_cotizacion" Multiplicity="1" />
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_cotizacion">
+              <PropertyRef Name="ID_estado_cotizacion" />
+            </Principal>
+            <Dependent Role="cotizaciones">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cotizacion_usuarioTecnico">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="ID_usuario" />
+            </Principal>
+            <Dependent Role="cotizaciones">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitudCotizacion_cotizaciones">
+          <End Role="cotizaciones" Type="Self.cotizaciones" Multiplicity="1" />
+          <End Role="solicitud_cotizacion" Type="Self.solicitud_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cotizaciones">
+              <PropertyRef Name="ID_cotizacion" />
+            </Principal>
+            <Dependent Role="solicitud_cotizacion">
+              <PropertyRef Name="id_cotizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_departamento">
+          <End Role="departamentos" Type="Self.departamentos" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="departamentos">
+              <PropertyRef Name="ID_departamento" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="id_departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ordenCompra_estado">
+          <End Role="estado_ordenCompra" Type="Self.estado_ordenCompra" Multiplicity="1" />
+          <End Role="ordenCompra" Type="Self.ordenCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_ordenCompra">
+              <PropertyRef Name="ID_estadoOrdenCompra" />
+            </Principal>
+            <Dependent Role="ordenCompra">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitud_estado">
+          <End Role="estado_solicitud" Type="Self.estado_solicitud" Multiplicity="1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_solicitud">
+              <PropertyRef Name="ID_estado_solicitud" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_rol">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="ID_rol" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitud_suministro">
+          <End Role="suministros" Type="Self.suministros" Multiplicity="1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="suministros">
+              <PropertyRef Name="ID_suministro" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_suministro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_solicitudCotizacion_solicitud">
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="1" />
+          <End Role="solicitud_cotizacion" Type="Self.solicitud_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitud">
+              <PropertyRef Name="ID_solicitud" />
+            </Principal>
+            <Dependent Role="solicitud_cotizacion">
+              <PropertyRef Name="id_solicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="comprasInventarioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="archivos_cotizaciones" EntityType="Self.archivos_cotizaciones" />
+          <EntitySet Name="cotizacion_proveedor" EntityType="Self.cotizacion_proveedor" />
+          <EntitySet Name="cotizaciones" EntityType="Self.cotizaciones" />
+          <EntitySet Name="departamentos" EntityType="Self.departamentos" />
+          <EntitySet Name="estado_cotizacion" EntityType="Self.estado_cotizacion" />
+          <EntitySet Name="estado_cotizacion_proveedor" EntityType="Self.estado_cotizacion_proveedor" />
+          <EntitySet Name="estado_ordenCompra" EntityType="Self.estado_ordenCompra" />
+          <EntitySet Name="estado_solicitud" EntityType="Self.estado_solicitud" />
+          <EntitySet Name="ordenCompra" EntityType="Self.ordenCompra" />
+          <EntitySet Name="proveedores" EntityType="Self.proveedores" />
+          <EntitySet Name="roles" EntityType="Self.roles" />
+          <EntitySet Name="solicitud" EntityType="Self.solicitud" />
+          <EntitySet Name="solicitud_cotizacion" EntityType="Self.solicitud_cotizacion" />
+          <EntitySet Name="suministros" EntityType="Self.suministros" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tipoCotizacion" EntityType="Self.tipoCotizacion" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <AssociationSet Name="FK_archivosCotizaciones_tipoCotizacion" Association="Self.FK_archivosCotizaciones_tipoCotizacion">
+            <End Role="tipoCotizacion" EntitySet="tipoCotizacion" />
+            <End Role="archivos_cotizaciones" EntitySet="archivos_cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacion_ArchivoCotizacion" Association="Self.FK_cotizacion_ArchivoCotizacion">
+            <End Role="archivos_cotizaciones" EntitySet="archivos_cotizaciones" />
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacionRecibida_archivosCotizaciones" Association="Self.FK_cotizacionRecibida_archivosCotizaciones">
+            <End Role="archivos_cotizaciones" EntitySet="archivos_cotizaciones" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacionProveedor_cotizacion" Association="Self.FK_cotizacionProveedor_cotizacion">
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacionProveedor_proveedor" Association="Self.FK_cotizacionProveedor_proveedor">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estadoCotizacion_estadosCotizacionProveedor" Association="Self.FK_estadoCotizacion_estadosCotizacionProveedor">
+            <End Role="estado_cotizacion_proveedor" EntitySet="estado_cotizacion_proveedor" />
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordenCompra_cotizacionRespuesta" Association="Self.FK_ordenCompra_cotizacionRespuesta">
+            <End Role="cotizacion_proveedor" EntitySet="cotizacion_proveedor" />
+            <End Role="ordenCompra" EntitySet="ordenCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacion_estadoCotizacion" Association="Self.FK_cotizacion_estadoCotizacion">
+            <End Role="estado_cotizacion" EntitySet="estado_cotizacion" />
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cotizacion_usuarioTecnico" Association="Self.FK_cotizacion_usuarioTecnico">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitudCotizacion_cotizaciones" Association="Self.FK_solicitudCotizacion_cotizaciones">
+            <End Role="cotizaciones" EntitySet="cotizaciones" />
+            <End Role="solicitud_cotizacion" EntitySet="solicitud_cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_departamento" Association="Self.FK_usuarios_departamento">
+            <End Role="departamentos" EntitySet="departamentos" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ordenCompra_estado" Association="Self.FK_ordenCompra_estado">
+            <End Role="estado_ordenCompra" EntitySet="estado_ordenCompra" />
+            <End Role="ordenCompra" EntitySet="ordenCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitud_estado" Association="Self.FK_solicitud_estado">
+            <End Role="estado_solicitud" EntitySet="estado_solicitud" />
+            <End Role="solicitud" EntitySet="solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_rol" Association="Self.FK_usuarios_rol">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitud_suministro" Association="Self.FK_solicitud_suministro">
+            <End Role="suministros" EntitySet="suministros" />
+            <End Role="solicitud" EntitySet="solicitud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_solicitudCotizacion_solicitud" Association="Self.FK_solicitudCotizacion_solicitud">
+            <End Role="solicitud" EntitySet="solicitud" />
+            <End Role="solicitud_cotizacion" EntitySet="solicitud_cotizacion" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(comprasInventarioModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(comprasInventarioModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Login" ReturnType="Collection(comprasInventarioModel.SP_Login_Result)">
+            <Parameter Name="usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_Login_Result">
+          <Property Type="Int32" Name="ID_usuario" Nullable="false" />
+          <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="clave" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="nombres" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="Int32" Name="id_rol" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="15" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="comprasInventarioModelStoreContainer" CdmEntityContainer="comprasInventarioEntities">
+          <EntitySetMapping Name="archivos_cotizaciones">
+            <EntityTypeMapping TypeName="comprasInventarioModel.archivos_cotizaciones">
+              <MappingFragment StoreEntitySet="archivos_cotizaciones">
+                <ScalarProperty Name="ID_archivos_cotizaciones" ColumnName="ID_archivos_cotizaciones" />
+                <ScalarProperty Name="nombreArchivo" ColumnName="nombreArchivo" />
+                <ScalarProperty Name="archivo" ColumnName="archivo" />
+                <ScalarProperty Name="id_tipoCotizacion" ColumnName="id_tipoCotizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cotizacion_proveedor">
+            <EntityTypeMapping TypeName="comprasInventarioModel.cotizacion_proveedor">
+              <MappingFragment StoreEntitySet="cotizacion_proveedor">
+                <ScalarProperty Name="ID_cotizacion_proveedor" ColumnName="ID_cotizacion_proveedor" />
+                <ScalarProperty Name="id_cotizacion" ColumnName="id_cotizacion" />
+                <ScalarProperty Name="id_cotizacionRecibida" ColumnName="id_cotizacionRecibida" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cotizaciones">
+            <EntityTypeMapping TypeName="comprasInventarioModel.cotizaciones">
+              <MappingFragment StoreEntitySet="cotizaciones">
+                <ScalarProperty Name="ID_cotizacion" ColumnName="ID_cotizacion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_archivoCotizacion" ColumnName="id_archivoCotizacion" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departamentos">
+            <EntityTypeMapping TypeName="comprasInventarioModel.departamentos">
+              <MappingFragment StoreEntitySet="departamentos">
+                <ScalarProperty Name="ID_departamento" ColumnName="ID_departamento" />
+                <ScalarProperty Name="nombre_departamento" ColumnName="nombre_departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_cotizacion">
+            <EntityTypeMapping TypeName="comprasInventarioModel.estado_cotizacion">
+              <MappingFragment StoreEntitySet="estado_cotizacion">
+                <ScalarProperty Name="ID_estado_cotizacion" ColumnName="ID_estado_cotizacion" />
+                <ScalarProperty Name="estado_cotizacion1" ColumnName="estado_cotizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_cotizacion_proveedor">
+            <EntityTypeMapping TypeName="comprasInventarioModel.estado_cotizacion_proveedor">
+              <MappingFragment StoreEntitySet="estado_cotizacion_proveedor">
+                <ScalarProperty Name="ID_estado_cotizacion_proveedor" ColumnName="ID_estado_cotizacion_proveedor" />
+                <ScalarProperty Name="estado_cotizacion_proveedor1" ColumnName="estado_cotizacion_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_ordenCompra">
+            <EntityTypeMapping TypeName="comprasInventarioModel.estado_ordenCompra">
+              <MappingFragment StoreEntitySet="estado_ordenCompra">
+                <ScalarProperty Name="ID_estadoOrdenCompra" ColumnName="ID_estadoOrdenCompra" />
+                <ScalarProperty Name="estadoORdenCompra" ColumnName="estadoORdenCompra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_solicitud">
+            <EntityTypeMapping TypeName="comprasInventarioModel.estado_solicitud">
+              <MappingFragment StoreEntitySet="estado_solicitud">
+                <ScalarProperty Name="ID_estado_solicitud" ColumnName="ID_estado_solicitud" />
+                <ScalarProperty Name="estado_solicitud1" ColumnName="estado_solicitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordenCompra">
+            <EntityTypeMapping TypeName="comprasInventarioModel.ordenCompra">
+              <MappingFragment StoreEntitySet="ordenCompra">
+                <ScalarProperty Name="ID_orden_compra" ColumnName="ID_orden_compra" />
+                <ScalarProperty Name="id_cotizacionRespuesta" ColumnName="id_cotizacionRespuesta" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proveedores">
+            <EntityTypeMapping TypeName="comprasInventarioModel.proveedores">
+              <MappingFragment StoreEntitySet="proveedores">
+                <ScalarProperty Name="ID_proveedor" ColumnName="ID_proveedor" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="comprasInventarioModel.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="ID_rol" ColumnName="ID_rol" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="solicitud">
+            <EntityTypeMapping TypeName="comprasInventarioModel.solicitud">
+              <MappingFragment StoreEntitySet="solicitud">
+                <ScalarProperty Name="ID_solicitud" ColumnName="ID_solicitud" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_suministro" ColumnName="id_suministro" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="solicitud_cotizacion">
+            <EntityTypeMapping TypeName="comprasInventarioModel.solicitud_cotizacion">
+              <MappingFragment StoreEntitySet="solicitud_cotizacion">
+                <ScalarProperty Name="ID_solicitud_cotizacion" ColumnName="ID_solicitud_cotizacion" />
+                <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+                <ScalarProperty Name="id_cotizacion" ColumnName="id_cotizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suministros">
+            <EntityTypeMapping TypeName="comprasInventarioModel.suministros">
+              <MappingFragment StoreEntitySet="suministros">
+                <ScalarProperty Name="ID_suministro" ColumnName="ID_suministro" />
+                <ScalarProperty Name="nombreSuministro" ColumnName="nombreSuministro" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="comprasInventarioModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoCotizacion">
+            <EntityTypeMapping TypeName="comprasInventarioModel.tipoCotizacion">
+              <MappingFragment StoreEntitySet="tipoCotizacion">
+                <ScalarProperty Name="ID_tipoCotizacion" ColumnName="ID_tipoCotizacion" />
+                <ScalarProperty Name="tipoCotizacion1" ColumnName="tipoCotizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="comprasInventarioModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="ID_usuario" ColumnName="ID_usuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="comprasInventarioModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="comprasInventarioModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="comprasInventarioModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="comprasInventarioModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="comprasInventarioModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Login" FunctionName="comprasInventarioModel.Store.SP_Login">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_Login_Result">
+                <ScalarProperty Name="ID_usuario" ColumnName="ID_usuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="comprasInventarioModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="comprasInventarioModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

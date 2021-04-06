@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e870e6ba57234a3a95e66e1bcab8a82e" Name="Diagram1">
+        <EntityTypeShape EntityType="comprasInventarioModel.archivos_cotizaciones" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.cotizacion_proveedor" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.cotizaciones" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.departamentos" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.estado_cotizacion" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.estado_cotizacion_proveedor" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.estado_ordenCompra" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.estado_solicitud" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.ordenCompra" Width="1.5" PointX="9.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.proveedores" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.roles" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.solicitud" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.solicitud_cotizacion" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.suministros" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.tipoCotizacion" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.usuarios" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="comprasInventarioModel.FK_archivosCotizaciones_tipoCotizacion" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_cotizacion_ArchivoCotizacion" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_cotizacionRecibida_archivosCotizaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_cotizacionProveedor_cotizacion" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_cotizacionProveedor_proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_estadoCotizacion_estadosCotizacionProveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_ordenCompra_cotizacionRespuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_cotizacion_estadoCotizacion" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_cotizacion_usuarioTecnico" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_solicitudCotizacion_cotizaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_usuarios_departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_ordenCompra_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_solicitud_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_usuarios_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_solicitud_suministro" ManuallyRouted="false" />
+        <AssociationConnector Association="comprasInventarioModel.FK_solicitudCotizacion_solicitud" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
