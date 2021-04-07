@@ -34,6 +34,7 @@ namespace ProjectComprasInventario.Views
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
+            this.lblPrueba = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -78,11 +79,21 @@ namespace ProjectComprasInventario.Views
             this.btnAcceder.UseVisualStyleBackColor = true;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
+            // lblPrueba
+            // 
+            this.lblPrueba.AutoSize = true;
+            this.lblPrueba.Location = new System.Drawing.Point(126, 357);
+            this.lblPrueba.Name = "lblPrueba";
+            this.lblPrueba.Size = new System.Drawing.Size(35, 13);
+            this.lblPrueba.TabIndex = 5;
+            this.lblPrueba.Text = "label3";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblPrueba);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.txtUsuario);
@@ -103,5 +114,6 @@ namespace ProjectComprasInventario.Views
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Button btnAcceder;
+        private System.Windows.Forms.Label lblPrueba;
     }
 }

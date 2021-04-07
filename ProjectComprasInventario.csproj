@@ -56,80 +56,84 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\Session.cs" />
     <Compile Include="Models\archivos_cotizaciones.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\cotizaciones.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\cotizacion_proveedor.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\departamentos.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity Framwork.Context.cs">
+    <Compile Include="Models\Entity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Entity Framwork.Context.tt</DependentUpon>
+      <DependentUpon>Entity.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity Framwork.cs">
+    <Compile Include="Models\Entity.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity Framwork.Designer.cs">
+    <Compile Include="Models\Entity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Entity Framwork.edmx</DependentUpon>
+      <DependentUpon>Entity.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\estado_cotizacion.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\estado_cotizacion_proveedor.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\estado_ordenCompra.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\estado_solicitud.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ordenCompra.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\proveedores.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\roles.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\solicitud.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\solicitud_cotizacion.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_Login_Result.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Login_Result1.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\suministros.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tipoCotizacion.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\usuarios.cs">
-      <DependentUpon>Entity Framwork.tt</DependentUpon>
+      <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,12 +183,12 @@
     <EmbeddedResource Include="Views\frmSeleccionarSuministro.resx">
       <DependentUpon>frmSeleccionarSuministro.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Entity Framwork.edmx">
+    <EntityDeploy Include="Models\Entity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Entity Framwork.Designer.cs</LastGenOutput>
+      <LastGenOutput>Entity.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Entity Framwork.edmx.diagram">
-      <DependentUpon>Entity Framwork.edmx</DependentUpon>
+    <None Include="Models\Entity.edmx.diagram">
+      <DependentUpon>Entity.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -201,19 +205,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\EntityFramework\" />
+    <Content Include="Models\Entity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Entity.edmx</DependentUpon>
+      <LastGenOutput>Entity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Entity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Entity.edmx</DependentUpon>
+      <LastGenOutput>Entity.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Entity Framwork.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Entity Framwork.Context.cs</LastGenOutput>
-      <DependentUpon>Entity Framwork.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Entity Framwork.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Entity Framwork.edmx</DependentUpon>
-      <LastGenOutput>Entity Framwork.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\usuario.png" />
     <None Include="Resources\salida.png" />
     <None Include="Resources\request.png" />

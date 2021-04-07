@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="comprasInventarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="comprasInventarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="archivos_cotizaciones">
           <Key>
             <PropertyRef Name="ID_archivos_cotizaciones" />
@@ -464,8 +464,7 @@
             <End Role="usuarios" EntitySet="usuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="comprasInventarioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -843,7 +842,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="comprasInventarioEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entity" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="archivos_cotizaciones" EntityType="Self.archivos_cotizaciones" />
           <EntitySet Name="cotizacion_proveedor" EntityType="Self.cotizacion_proveedor" />
           <EntitySet Name="cotizaciones" EntityType="Self.cotizaciones" />
@@ -949,15 +948,15 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SP_Login" ReturnType="Collection(comprasInventarioModel.SP_Login_Result)">
-            <Parameter Name="usuario" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_renamediagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="SP_Login" ReturnType="Collection(comprasInventarioModel.SP_Login_Result1)">
+            <Parameter Name="usuario" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -980,12 +979,22 @@
           <Property Type="Int32" Name="id_rol" Nullable="false" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="15" />
         </ComplexType>
+        <ComplexType Name="SP_Login_Result1">
+          <Property Type="Int32" Name="ID_usuario" Nullable="false" />
+          <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="clave" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="nombres" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="Int32" Name="id_rol" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="15" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="comprasInventarioModelStoreContainer" CdmEntityContainer="comprasInventarioEntities">
+        <EntityContainerMapping StorageEntityContainer="comprasInventarioModelStoreContainer" CdmEntityContainer="Entity">
           <EntitySetMapping Name="archivos_cotizaciones">
             <EntityTypeMapping TypeName="comprasInventarioModel.archivos_cotizaciones">
               <MappingFragment StoreEntitySet="archivos_cotizaciones">
@@ -1175,9 +1184,11 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="comprasInventarioModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="comprasInventarioModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="SP_Login" FunctionName="comprasInventarioModel.Store.SP_Login">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_Login_Result">
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_Login_Result1">
                 <ScalarProperty Name="ID_usuario" ColumnName="ID_usuario" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="clave" ColumnName="clave" />
@@ -1189,8 +1200,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="comprasInventarioModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="comprasInventarioModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

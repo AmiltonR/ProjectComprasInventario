@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectComprasInventario.Controllers;
 
 namespace ProjectComprasInventario.Views
 {
@@ -17,10 +18,13 @@ namespace ProjectComprasInventario.Views
             InitializeComponent();
         }
 
-        private void btnAcceder_Click(object sender, EventArgs e)
-        {
+        private void btnAcceder_Click(object sender, EventArgs e){
+
             String user = txtUsuario.Text;
             String pass = txtContra.Text;
+
+            LoginController login = new LoginController();
+            lblPrueba.Text = login.Login(user);
         }
     }
 }

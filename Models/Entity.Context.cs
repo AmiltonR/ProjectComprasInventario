@@ -15,10 +15,10 @@ namespace ProjectComprasInventario.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class comprasInventarioEntities : DbContext
+    public partial class Entity : DbContext
     {
-        public comprasInventarioEntities()
-            : base("name=comprasInventarioEntities")
+        public Entity()
+            : base("name=Entity")
         {
         }
     
@@ -126,15 +126,6 @@ namespace ProjectComprasInventario.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual ObjectResult<SP_Login_Result> SP_Login(string usuario)
-        {
-            var usuarioParameter = usuario != null ?
-                new ObjectParameter("usuario", usuario) :
-                new ObjectParameter("usuario", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Login_Result>("SP_Login", usuarioParameter);
-        }
-    
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
         {
             var diagramnameParameter = diagramname != null ?
@@ -155,6 +146,15 @@ namespace ProjectComprasInventario.Models
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<SP_Login_Result1> SP_Login(string usuario)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Login_Result1>("SP_Login", usuarioParameter);
         }
     }
 }
