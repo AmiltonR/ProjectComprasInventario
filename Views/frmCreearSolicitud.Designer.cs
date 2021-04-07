@@ -78,6 +78,7 @@ namespace ProjectComprasInventario.Views
             this.btnSeleccionarSuministro.TabIndex = 4;
             this.btnSeleccionarSuministro.Text = "...";
             this.btnSeleccionarSuministro.UseVisualStyleBackColor = true;
+            this.btnSeleccionarSuministro.Click += new System.EventHandler(this.btnSeleccionarSuministro_Click);
             // 
             // btnGuardarSolicitud
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectComprasInventario.Controllers;
 
 namespace ProjectComprasInventario.Views
 {
@@ -15,6 +16,7 @@ namespace ProjectComprasInventario.Views
         public frmMainMenu()
         {
             InitializeComponent();
+            lblUserInfo.Text = Session.usuario;
         }
 
         private void btnCloseinMenu_Click(object sender, EventArgs e)
@@ -25,6 +27,30 @@ namespace ProjectComprasInventario.Views
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private Form activeForm = null;
+        private void showChildForm(Form childForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+       
+        }
+
+        private void btnSolicitud_Click(object sender, EventArgs e)
+        {
+            showChildForm(new frmCreearSolicitud());
         }
     }
 }

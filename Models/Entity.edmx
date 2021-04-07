@@ -374,12 +374,14 @@
         </Function>
         <Function Name="SP_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="contra" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_SeleccionarSuministros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="comprasInventarioModelStoreContainer">
           <EntitySet Name="archivos_cotizaciones" EntityType="Self.archivos_cotizaciones" Schema="dbo" store:Type="Tables" />
@@ -954,9 +956,11 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="SP_Login" ReturnType="Collection(comprasInventarioModel.SP_Login_Result1)">
+          <FunctionImport Name="SP_Login" ReturnType="Collection(comprasInventarioModel.SP_Login_Result2)">
             <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="contra" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_SeleccionarSuministros" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarSuministros_Result)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -988,6 +992,24 @@
           <Property Type="Int32" Name="id_departamento" Nullable="false" />
           <Property Type="Int32" Name="id_rol" Nullable="false" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SP_Login_Result2">
+          <Property Type="Int32" Name="ID_usuario" Nullable="false" />
+          <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="clave" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="nombres" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="Int32" Name="id_rol" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarSuministros_Result">
+          <Property Type="Int32" Name="ID_suministro" Nullable="false" />
+          <Property Type="String" Name="nombreSuministro" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="marca" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="modelo" Nullable="true" MaxLength="30" />
+          <Property Type="Double" Name="precio" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1188,7 +1210,7 @@
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="comprasInventarioModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="SP_Login" FunctionName="comprasInventarioModel.Store.SP_Login">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_Login_Result1">
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_Login_Result2">
                 <ScalarProperty Name="ID_usuario" ColumnName="ID_usuario" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="clave" ColumnName="clave" />
@@ -1197,6 +1219,18 @@
                 <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
                 <ScalarProperty Name="id_rol" ColumnName="id_rol" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SeleccionarSuministros" FunctionName="comprasInventarioModel.Store.SP_SeleccionarSuministros">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SeleccionarSuministros_Result">
+                <ScalarProperty Name="ID_suministro" ColumnName="ID_suministro" />
+                <ScalarProperty Name="nombreSuministro" ColumnName="nombreSuministro" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

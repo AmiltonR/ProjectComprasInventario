@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjectComprasInventario.Controllers;
 
 namespace ProjectComprasInventario.Views
 {
@@ -15,6 +16,12 @@ namespace ProjectComprasInventario.Views
         public frmSeleccionarSuministro()
         {
             InitializeComponent();
+        }
+
+        private void frmSeleccionarSuministro_Load(object sender, EventArgs e)
+        {
+            SeleccionarSuministroController seleccionarSum = new SeleccionarSuministroController();
+            seleccionarSum.seleccionarSuministro(dgvSuministros);
         }
     }
 }

@@ -89,7 +89,9 @@ namespace ProjectComprasInventario.Views
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSeleccionarSuministro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSeleccionarSuministro";
+            this.Load += new System.EventHandler(this.frmSeleccionarSuministro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuministros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

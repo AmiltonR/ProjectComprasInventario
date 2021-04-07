@@ -8,9 +8,12 @@ namespace ProjectComprasInventario.Controllers
 {
     class Session
     {
-        public static void Sesion()
-        {
-
-        }
+        
+       public static int id;
+       public static int rol;
+       public static int departamento;
+       public static String nombres;
+       public static  String apellidos;
+       public static String usuario;
     }
 }

@@ -19,12 +19,24 @@ namespace ProjectComprasInventario.Views
         }
 
         private void btnAcceder_Click(object sender, EventArgs e){
-
+            int confirmacion;
             String user = txtUsuario.Text;
             String pass = txtContra.Text;
 
             LoginController login = new LoginController();
-            lblPrueba.Text = login.Login(user);
+            confirmacion = login.Login(user,pass);
+
+            if (confirmacion==1)
+            {
+                lblInfo.Text = "Ingreso con éxito";
+                frmMainMenu menu = new frmMainMenu();
+                this.Hide();
+                menu.Show();
+            }
+            else
+            {
+                lblInfo.Text = "Credenciales incorrectas";
+            }
         }
     }
 }

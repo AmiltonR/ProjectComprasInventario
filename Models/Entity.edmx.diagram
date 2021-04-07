@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="comprasInventarioModel.roles" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="comprasInventarioModel.solicitud" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="comprasInventarioModel.solicitud_cotizacion" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="comprasInventarioModel.suministros" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="comprasInventarioModel.suministros" Width="2" PointX="5" PointY="14" IsExpanded="true" />
         <EntityTypeShape EntityType="comprasInventarioModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="comprasInventarioModel.tipoCotizacion" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="comprasInventarioModel.usuarios" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />

@@ -16,5 +16,11 @@ namespace ProjectComprasInventario.Views
         {
             InitializeComponent();
         }
+
+        private void btnSeleccionarSuministro_Click(object sender, EventArgs e)
+        {
+            frmSeleccionarSuministro suministro = new frmSeleccionarSuministro();
+            suministro.Show();
+        }
     }
 }

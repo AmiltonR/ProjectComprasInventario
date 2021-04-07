@@ -148,13 +148,22 @@ namespace ProjectComprasInventario.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
-        public virtual ObjectResult<SP_Login_Result1> SP_Login(string usuario)
+        public virtual ObjectResult<SP_Login_Result2> SP_Login(string usuario, string contra)
         {
             var usuarioParameter = usuario != null ?
                 new ObjectParameter("usuario", usuario) :
                 new ObjectParameter("usuario", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Login_Result1>("SP_Login", usuarioParameter);
+            var contraParameter = contra != null ?
+                new ObjectParameter("contra", contra) :
+                new ObjectParameter("contra", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Login_Result2>("SP_Login", usuarioParameter, contraParameter);
+        }
+    
+        public virtual ObjectResult<SP_SeleccionarSuministros_Result> SP_SeleccionarSuministros()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarSuministros_Result>("SP_SeleccionarSuministros");
         }
     }
 }

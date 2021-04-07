@@ -10,19 +10,28 @@ namespace ProjectComprasInventario.Controllers
 {
     class LoginController
     {
-        public String Login(String user){
-           
-            String usuario = String.Empty;
-            int id,rol;
+        public int Login(String user, String pass){
+            int bandera = 0;
              
             using (Entity db = new Entity())
             {
-                var userList = db.SP_Login(user).ToList();
-                foreach (var obUser in userList){
-                    usuario = obUser.usuario;
+                var userList = db.SP_Login(user,pass).ToList();
+                if (userList.Any())
+                {
+                    bandera = 1;
+                    foreach (var obUser in userList)
+                    {
+                        Session.id = obUser.ID_usuario;
+                        Session.nombres = obUser.nombres;
+                        Session.usuario = obUser.usuario;
+                        Session.rol = obUser.id_rol;
+                        Session.departamento = obUser.id_departamento;
+                        Session.apellidos = obUser.apellidos;
+                    }
                 }
+               
             }
-            return usuario;
+            return bandera;
         }
     }
 }

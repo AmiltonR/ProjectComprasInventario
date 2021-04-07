@@ -30,23 +30,23 @@ namespace ProjectComprasInventario.Views
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panelContainer = new System.Windows.Forms.Panel();
+            this.btnCloseinMenu = new System.Windows.Forms.Button();
+            this.btnSolicitud = new System.Windows.Forms.Button();
             this.panelUser = new System.Windows.Forms.Panel();
-            this.panelWindowsControls = new System.Windows.Forms.Panel();
-            this.lblHeader = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUserInfo = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblHeader = new System.Windows.Forms.Label();
+            this.panelWindowsControls = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnCloseinMenu = new System.Windows.Forms.Button();
-            this.btnSolicitud = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panelUser.SuspendLayout();
-            this.panelWindowsControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panelWindowsControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -61,25 +61,41 @@ namespace ProjectComprasInventario.Views
             this.panelSideMenu.Size = new System.Drawing.Size(250, 790);
             this.panelSideMenu.TabIndex = 0;
             // 
-            // panel2
+            // btnCloseinMenu
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.panel2.Controls.Add(this.lblHeader);
-            this.panel2.Controls.Add(this.panelWindowsControls);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(250, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1090, 94);
-            this.panel2.TabIndex = 1;
+            this.btnCloseinMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCloseinMenu.FlatAppearance.BorderSize = 0;
+            this.btnCloseinMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseinMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseinMenu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCloseinMenu.Image = global::ProjectComprasInventario.Properties.Resources.salida;
+            this.btnCloseinMenu.Location = new System.Drawing.Point(0, 745);
+            this.btnCloseinMenu.Name = "btnCloseinMenu";
+            this.btnCloseinMenu.Size = new System.Drawing.Size(250, 45);
+            this.btnCloseinMenu.TabIndex = 2;
+            this.btnCloseinMenu.Text = "Salir";
+            this.btnCloseinMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseinMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCloseinMenu.UseVisualStyleBackColor = true;
+            this.btnCloseinMenu.Click += new System.EventHandler(this.btnCloseinMenu_Click);
             // 
-            // panelContainer
+            // btnSolicitud
             // 
-            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(250, 94);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1090, 696);
-            this.panelContainer.TabIndex = 2;
+            this.btnSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSolicitud.FlatAppearance.BorderSize = 0;
+            this.btnSolicitud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSolicitud.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSolicitud.Image = global::ProjectComprasInventario.Properties.Resources.request;
+            this.btnSolicitud.Location = new System.Drawing.Point(0, 198);
+            this.btnSolicitud.Name = "btnSolicitud";
+            this.btnSolicitud.Size = new System.Drawing.Size(250, 45);
+            this.btnSolicitud.TabIndex = 1;
+            this.btnSolicitud.Text = "Solicitud";
+            this.btnSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSolicitud.UseVisualStyleBackColor = true;
+            this.btnSolicitud.Click += new System.EventHandler(this.btnSolicitud_Click);
             // 
             // panelUser
             // 
@@ -91,15 +107,37 @@ namespace ProjectComprasInventario.Views
             this.panelUser.Size = new System.Drawing.Size(250, 198);
             this.panelUser.TabIndex = 0;
             // 
-            // panelWindowsControls
+            // pictureBox1
             // 
-            this.panelWindowsControls.Controls.Add(this.btnMinimize);
-            this.panelWindowsControls.Controls.Add(this.btnMaximize);
-            this.panelWindowsControls.Controls.Add(this.btnClose);
-            this.panelWindowsControls.Location = new System.Drawing.Point(880, 0);
-            this.panelWindowsControls.Name = "panelWindowsControls";
-            this.panelWindowsControls.Size = new System.Drawing.Size(210, 44);
-            this.panelWindowsControls.TabIndex = 0;
+            this.pictureBox1.Image = global::ProjectComprasInventario.Properties.Resources.usuario;
+            this.pictureBox1.Location = new System.Drawing.Point(58, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(131, 135);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblUserInfo
+            // 
+            this.lblUserInfo.AutoSize = true;
+            this.lblUserInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserInfo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblUserInfo.Location = new System.Drawing.Point(84, 161);
+            this.lblUserInfo.Name = "lblUserInfo";
+            this.lblUserInfo.Size = new System.Drawing.Size(77, 16);
+            this.lblUserInfo.TabIndex = 0;
+            this.lblUserInfo.Text = "Name User";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.panel2.Controls.Add(this.lblHeader);
+            this.panel2.Controls.Add(this.panelWindowsControls);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(250, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1090, 94);
+            this.panel2.TabIndex = 1;
             // 
             // lblHeader
             // 
@@ -113,17 +151,15 @@ namespace ProjectComprasInventario.Views
             this.lblHeader.TabIndex = 1;
             this.lblHeader.Text = "Compras de Inventario";
             // 
-            // lblUserInfo
+            // panelWindowsControls
             // 
-            this.lblUserInfo.AutoSize = true;
-            this.lblUserInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserInfo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUserInfo.Location = new System.Drawing.Point(84, 161);
-            this.lblUserInfo.Name = "lblUserInfo";
-            this.lblUserInfo.Size = new System.Drawing.Size(77, 16);
-            this.lblUserInfo.TabIndex = 0;
-            this.lblUserInfo.Text = "Name User";
+            this.panelWindowsControls.Controls.Add(this.btnMinimize);
+            this.panelWindowsControls.Controls.Add(this.btnMaximize);
+            this.panelWindowsControls.Controls.Add(this.btnClose);
+            this.panelWindowsControls.Location = new System.Drawing.Point(880, 0);
+            this.panelWindowsControls.Name = "panelWindowsControls";
+            this.panelWindowsControls.Size = new System.Drawing.Size(210, 44);
+            this.panelWindowsControls.TabIndex = 0;
             // 
             // btnMinimize
             // 
@@ -162,49 +198,14 @@ namespace ProjectComprasInventario.Views
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnCloseinMenu
+            // panelContainer
             // 
-            this.btnCloseinMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCloseinMenu.FlatAppearance.BorderSize = 0;
-            this.btnCloseinMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseinMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseinMenu.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnCloseinMenu.Image = global::ProjectComprasInventario.Properties.Resources.salida;
-            this.btnCloseinMenu.Location = new System.Drawing.Point(0, 745);
-            this.btnCloseinMenu.Name = "btnCloseinMenu";
-            this.btnCloseinMenu.Size = new System.Drawing.Size(250, 45);
-            this.btnCloseinMenu.TabIndex = 2;
-            this.btnCloseinMenu.Text = "Salir";
-            this.btnCloseinMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseinMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCloseinMenu.UseVisualStyleBackColor = true;
-            this.btnCloseinMenu.Click += new System.EventHandler(this.btnCloseinMenu_Click);
-            // 
-            // btnSolicitud
-            // 
-            this.btnSolicitud.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSolicitud.FlatAppearance.BorderSize = 0;
-            this.btnSolicitud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSolicitud.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSolicitud.Image = global::ProjectComprasInventario.Properties.Resources.request;
-            this.btnSolicitud.Location = new System.Drawing.Point(0, 198);
-            this.btnSolicitud.Name = "btnSolicitud";
-            this.btnSolicitud.Size = new System.Drawing.Size(250, 45);
-            this.btnSolicitud.TabIndex = 1;
-            this.btnSolicitud.Text = "Solicitud";
-            this.btnSolicitud.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSolicitud.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSolicitud.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProjectComprasInventario.Properties.Resources.usuario;
-            this.pictureBox1.Location = new System.Drawing.Point(58, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 135);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(250, 94);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1090, 696);
+            this.panelContainer.TabIndex = 2;
             // 
             // frmMainMenu
             // 
@@ -219,12 +220,12 @@ namespace ProjectComprasInventario.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainMenu";
             this.panelSideMenu.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
-            this.panelWindowsControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panelWindowsControls.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

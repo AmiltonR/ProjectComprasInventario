@@ -34,7 +34,7 @@ namespace ProjectComprasInventario.Views
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContra = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
-            this.lblPrueba = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +71,7 @@ namespace ProjectComprasInventario.Views
             // 
             // btnAcceder
             // 
-            this.btnAcceder.Location = new System.Drawing.Point(380, 269);
+            this.btnAcceder.Location = new System.Drawing.Point(378, 291);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(75, 23);
             this.btnAcceder.TabIndex = 4;
@@ -79,21 +79,21 @@ namespace ProjectComprasInventario.Views
             this.btnAcceder.UseVisualStyleBackColor = true;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
-            // lblPrueba
+            // lblInfo
             // 
-            this.lblPrueba.AutoSize = true;
-            this.lblPrueba.Location = new System.Drawing.Point(126, 357);
-            this.lblPrueba.Name = "lblPrueba";
-            this.lblPrueba.Size = new System.Drawing.Size(35, 13);
-            this.lblPrueba.TabIndex = 5;
-            this.lblPrueba.Text = "label3";
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(390, 247);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(35, 13);
+            this.lblInfo.TabIndex = 5;
+            this.lblInfo.Text = "label3";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblPrueba);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.txtContra);
             this.Controls.Add(this.txtUsuario);
@@ -101,6 +101,7 @@ namespace ProjectComprasInventario.Views
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,6 +115,6 @@ namespace ProjectComprasInventario.Views
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Button btnAcceder;
-        private System.Windows.Forms.Label lblPrueba;
+        private System.Windows.Forms.Label lblInfo;
     }
 }
