@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using ProjectComprasInventario.Models;
 
 namespace ProjectComprasInventario.Controllers
 {
-    class SeleccionarSuministroController
+    class guardarSolicitudController
     {
-       public void seleccionarSuministro(DataGridView dgv)
+        public bool guardarSolicitud(int user, int suministro, int cantidad)
         {
+            bool isSuccessful;
             using (Entity db = new Entity())
             {
                 try
                 {
-                    var userList = db.SP_SeleccionarSuministros().ToList();
-                    dgv.DataSource = userList;
+                    db.SP_GuardarSolicitud(user, suministro, cantidad,1);
+                    isSuccessful = true;
                 }
                 catch (Exception)
                 {
-
+                    isSuccessful = false;
                     throw;
-                } 
+                }
             }
+            return isSuccessful;
         }
     }
 }

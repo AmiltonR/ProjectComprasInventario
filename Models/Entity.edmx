@@ -354,6 +354,14 @@
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="SP_AprobarSolicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="depart" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_CambiarEstadoSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -363,6 +371,20 @@
         <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_EditarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="suministro" Type="int" Mode="In" />
+          <Parameter Name="cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_EliminarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GuardarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="int" Mode="In" />
+          <Parameter Name="suministro" Type="int" Mode="In" />
+          <Parameter Name="cantidad" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -381,7 +403,19 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_SeleccionarProveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SeleccionarSolicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipoSolicitud" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_SeleccionarSuministros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SolicitudesAprobarDenegar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="departamento" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_SolicitudesGlobales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SolicitudesUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_TipoSolicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="comprasInventarioModelStoreContainer">
           <EntitySet Name="archivos_cotizaciones" EntityType="Self.archivos_cotizaciones" Schema="dbo" store:Type="Tables" />
@@ -956,11 +990,45 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="SP_Login" ReturnType="Collection(comprasInventarioModel.SP_Login_Result2)">
+          <FunctionImport Name="SP_SeleccionarSuministros" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarSuministros_Result)" />
+          <FunctionImport Name="SP_GuardarSolicitud">
+            <Parameter Name="usuario" Mode="In" Type="Int32" />
+            <Parameter Name="suministro" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SeleccionarSolicitudes" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarSolicitudes_Result)">
+          <Parameter Name="tipoSolicitud" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SolicitudesAprobarDenegar" ReturnType="Collection(comprasInventarioModel.SP_SolicitudesAprobarDenegar_Result)">
+          <Parameter Name="departamento" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SolicitudesUsuario" ReturnType="Collection(comprasInventarioModel.SP_SolicitudesUsuario_Result1)">
+          <Parameter Name="usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_EliminarSolicitud">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CambiarEstadoSolicitud">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_TipoSolicitudes" ReturnType="Collection(comprasInventarioModel.SP_TipoSolicitudes_Result)" />
+          <FunctionImport Name="SP_AprobarSolicitudes" ReturnType="Collection(comprasInventarioModel.SP_AprobarSolicitudes_Result2)">
+            <Parameter Name="depart" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_EditarSolicitud">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="suministro" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Login" ReturnType="Collection(comprasInventarioModel.SP_Login_Result3)">
             <Parameter Name="usuario" Mode="In" Type="String" />
             <Parameter Name="contra" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SP_SeleccionarSuministros" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarSuministros_Result)" />
+          <FunctionImport Name="SP_SeleccionarProveedores" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarProveedores_Result)" />
+          <FunctionImport Name="SP_SolicitudesGlobales" ReturnType="Collection(comprasInventarioModel.SP_SolicitudesGlobales_Result4)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1010,6 +1078,93 @@
           <Property Type="String" Name="marca" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="modelo" Nullable="true" MaxLength="30" />
           <Property Type="Double" Name="precio" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarSolicitudes_Result">
+          <Property Type="Int32" Name="ID_solicitud" Nullable="false" />
+          <Property Type="Int32" Name="id_usuario" Nullable="false" />
+          <Property Type="Int32" Name="id_suministro" Nullable="false" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="id_estado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesAprobarDenegar_Result">
+          <Property Type="String" Name="Empleado" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesUsuario_Result">
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesUsuario_Result1">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_AprobarSolicitudes_Result">
+          <Property Type="String" Name="Empleado" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="SUMINISTRO" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_AprobarSolicitudes_Result1">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Empleado" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="SUMINISTRO" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_TipoSolicitudes_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="SP_AprobarSolicitudes_Result2">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Empleado" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="SUMINISTRO" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesGlobales_Result">
+          <Property Type="Int32" Name="Solicitud" Nullable="false" />
+          <Property Type="String" Name="Empleado" Nullable="false" MaxLength="101" />
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_Login_Result3">
+          <Property Type="Int32" Name="ID_usuario" Nullable="false" />
+          <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="clave" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="nombres" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_departamento" Nullable="false" />
+          <Property Type="String" Name="departamento" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_rol" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesGlobales_Result1">
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesGlobales_Result2">
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesGlobales_Result3">
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedores_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Proveedor" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="SP_SolicitudesGlobales_Result4">
+          <Property Type="String" Name="Suministro" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Descripción" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Marca" Nullable="true" MaxLength="30" />
+          <Property Type="Double" Name="Cantidad" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1208,20 +1363,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="comprasInventarioModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="comprasInventarioModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="SP_Login" FunctionName="comprasInventarioModel.Store.SP_Login">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_Login_Result2">
-                <ScalarProperty Name="ID_usuario" ColumnName="ID_usuario" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="clave" ColumnName="clave" />
-                <ScalarProperty Name="nombres" ColumnName="nombres" />
-                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
-                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_SeleccionarSuministros" FunctionName="comprasInventarioModel.Store.SP_SeleccionarSuministros">
             <ResultMapping>
               <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SeleccionarSuministros_Result">
@@ -1231,6 +1372,93 @@
                 <ScalarProperty Name="marca" ColumnName="marca" />
                 <ScalarProperty Name="modelo" ColumnName="modelo" />
                 <ScalarProperty Name="precio" ColumnName="precio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GuardarSolicitud" FunctionName="comprasInventarioModel.Store.SP_GuardarSolicitud" />
+          <FunctionImportMapping FunctionImportName="SP_SeleccionarSolicitudes" FunctionName="comprasInventarioModel.Store.SP_SeleccionarSolicitudes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SeleccionarSolicitudes_Result">
+                <ScalarProperty Name="ID_solicitud" ColumnName="ID_solicitud" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_suministro" ColumnName="id_suministro" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SolicitudesAprobarDenegar" FunctionName="comprasInventarioModel.Store.SP_SolicitudesAprobarDenegar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SolicitudesAprobarDenegar_Result">
+                <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+                <ScalarProperty Name="Suministro" ColumnName="Suministro" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SolicitudesUsuario" FunctionName="comprasInventarioModel.Store.SP_SolicitudesUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SolicitudesUsuario_Result1">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Suministro" ColumnName="Suministro" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_EliminarSolicitud" FunctionName="comprasInventarioModel.Store.SP_EliminarSolicitud" />
+          <FunctionImportMapping FunctionImportName="SP_CambiarEstadoSolicitud" FunctionName="comprasInventarioModel.Store.SP_CambiarEstadoSolicitud" />
+          <FunctionImportMapping FunctionImportName="SP_TipoSolicitudes" FunctionName="comprasInventarioModel.Store.SP_TipoSolicitudes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_TipoSolicitudes_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_AprobarSolicitudes" FunctionName="comprasInventarioModel.Store.SP_AprobarSolicitudes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_AprobarSolicitudes_Result2">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+                <ScalarProperty Name="SUMINISTRO" ColumnName="SUMINISTRO" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_EditarSolicitud" FunctionName="comprasInventarioModel.Store.SP_EditarSolicitud" />
+          <FunctionImportMapping FunctionImportName="SP_Login" FunctionName="comprasInventarioModel.Store.SP_Login">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_Login_Result3">
+                <ScalarProperty Name="ID_usuario" ColumnName="ID_usuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SeleccionarProveedores" FunctionName="comprasInventarioModel.Store.SP_SeleccionarProveedores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SeleccionarProveedores_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SolicitudesGlobales" FunctionName="comprasInventarioModel.Store.SP_SolicitudesGlobales">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SolicitudesGlobales_Result4">
+                <ScalarProperty Name="Suministro" ColumnName="Suministro" />
+                <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

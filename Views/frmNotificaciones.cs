@@ -10,17 +10,22 @@ using System.Windows.Forms;
 
 namespace ProjectComprasInventario.Views
 {
-    public partial class frmCreearSolicitud : Form
+    public partial class frmNotificaciones : Form
     {
-        public frmCreearSolicitud()
+        public String msg;
+        public frmNotificaciones()
         {
             InitializeComponent();
         }
 
-        private void btnSeleccionarSuministro_Click(object sender, EventArgs e)
+        private void frmNotificaciones_Load(object sender, EventArgs e)
         {
-            frmSeleccionarSuministro suministro = new frmSeleccionarSuministro();
-            suministro.Show();
+            lblMsg.Text = msg;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

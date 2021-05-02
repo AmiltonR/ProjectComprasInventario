@@ -8,22 +8,22 @@ using ProjectComprasInventario.Models;
 
 namespace ProjectComprasInventario.Controllers
 {
-    class SeleccionarSuministroController
+    class SeleccionarProveedoresController
     {
-       public void seleccionarSuministro(DataGridView dgv)
+        public void seleccionarProveedor(DataGridView dgv)
         {
             using (Entity db = new Entity())
             {
                 try
                 {
-                    var userList = db.SP_SeleccionarSuministros().ToList();
-                    dgv.DataSource = userList;
+                    var proveedoresList = db.SP_SeleccionarProveedores().ToList();
+                    dgv.DataSource = proveedoresList;
                 }
                 catch (Exception)
                 {
 
                     throw;
-                } 
+                }
             }
         }
     }

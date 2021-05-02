@@ -11,14 +11,14 @@ namespace ProjectComprasInventario.Controllers
     class LoginController
     {
         public int Login(String user, String pass){
-            int bandera = 0;
+            int isUser = 0;
              
             using (Entity db = new Entity())
             {
                 var userList = db.SP_Login(user,pass).ToList();
                 if (userList.Any())
                 {
-                    bandera = 1;
+                    isUser = 1;
                     foreach (var obUser in userList)
                     {
                         Session.id = obUser.ID_usuario;
@@ -27,11 +27,12 @@ namespace ProjectComprasInventario.Controllers
                         Session.rol = obUser.id_rol;
                         Session.departamento = obUser.id_departamento;
                         Session.apellidos = obUser.apellidos;
+                        Session.depart = obUser.departamento;
                     }
                 }
                
             }
-            return bandera;
+            return isUser;
         }
     }
 }

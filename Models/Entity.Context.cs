@@ -148,7 +148,117 @@ namespace ProjectComprasInventario.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
-        public virtual ObjectResult<SP_Login_Result2> SP_Login(string usuario, string contra)
+        public virtual ObjectResult<SP_SeleccionarSuministros_Result> SP_SeleccionarSuministros()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarSuministros_Result>("SP_SeleccionarSuministros");
+        }
+    
+        public virtual int SP_GuardarSolicitud(Nullable<int> usuario, Nullable<int> suministro, Nullable<int> cantidad, Nullable<int> estado)
+        {
+            var usuarioParameter = usuario.HasValue ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(int));
+    
+            var suministroParameter = suministro.HasValue ?
+                new ObjectParameter("suministro", suministro) :
+                new ObjectParameter("suministro", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("cantidad", cantidad) :
+                new ObjectParameter("cantidad", typeof(int));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GuardarSolicitud", usuarioParameter, suministroParameter, cantidadParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<SP_SeleccionarSolicitudes_Result> SP_SeleccionarSolicitudes(Nullable<int> tipoSolicitud)
+        {
+            var tipoSolicitudParameter = tipoSolicitud.HasValue ?
+                new ObjectParameter("tipoSolicitud", tipoSolicitud) :
+                new ObjectParameter("tipoSolicitud", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarSolicitudes_Result>("SP_SeleccionarSolicitudes", tipoSolicitudParameter);
+        }
+    
+        public virtual ObjectResult<SP_SolicitudesAprobarDenegar_Result> SP_SolicitudesAprobarDenegar(Nullable<int> departamento)
+        {
+            var departamentoParameter = departamento.HasValue ?
+                new ObjectParameter("departamento", departamento) :
+                new ObjectParameter("departamento", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SolicitudesAprobarDenegar_Result>("SP_SolicitudesAprobarDenegar", departamentoParameter);
+        }
+    
+        public virtual ObjectResult<SP_SolicitudesUsuario_Result1> SP_SolicitudesUsuario(Nullable<int> usuario)
+        {
+            var usuarioParameter = usuario.HasValue ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SolicitudesUsuario_Result1>("SP_SolicitudesUsuario", usuarioParameter);
+        }
+    
+        public virtual int SP_EliminarSolicitud(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_EliminarSolicitud", idParameter);
+        }
+    
+        public virtual int SP_CambiarEstadoSolicitud(Nullable<int> id, Nullable<int> estado)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CambiarEstadoSolicitud", idParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<SP_TipoSolicitudes_Result> SP_TipoSolicitudes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_TipoSolicitudes_Result>("SP_TipoSolicitudes");
+        }
+    
+        public virtual ObjectResult<SP_AprobarSolicitudes_Result2> SP_AprobarSolicitudes(Nullable<int> depart, Nullable<int> estado)
+        {
+            var departParameter = depart.HasValue ?
+                new ObjectParameter("depart", depart) :
+                new ObjectParameter("depart", typeof(int));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_AprobarSolicitudes_Result2>("SP_AprobarSolicitudes", departParameter, estadoParameter);
+        }
+    
+        public virtual int SP_EditarSolicitud(Nullable<int> id, Nullable<int> suministro, Nullable<int> cantidad)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var suministroParameter = suministro.HasValue ?
+                new ObjectParameter("suministro", suministro) :
+                new ObjectParameter("suministro", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("cantidad", cantidad) :
+                new ObjectParameter("cantidad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_EditarSolicitud", idParameter, suministroParameter, cantidadParameter);
+        }
+    
+        public virtual ObjectResult<SP_Login_Result3> SP_Login(string usuario, string contra)
         {
             var usuarioParameter = usuario != null ?
                 new ObjectParameter("usuario", usuario) :
@@ -158,12 +268,17 @@ namespace ProjectComprasInventario.Models
                 new ObjectParameter("contra", contra) :
                 new ObjectParameter("contra", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Login_Result2>("SP_Login", usuarioParameter, contraParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Login_Result3>("SP_Login", usuarioParameter, contraParameter);
         }
     
-        public virtual ObjectResult<SP_SeleccionarSuministros_Result> SP_SeleccionarSuministros()
+        public virtual ObjectResult<SP_SeleccionarProveedores_Result> SP_SeleccionarProveedores()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarSuministros_Result>("SP_SeleccionarSuministros");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarProveedores_Result>("SP_SeleccionarProveedores");
+        }
+    
+        public virtual ObjectResult<SP_SolicitudesGlobales_Result4> SP_SolicitudesGlobales()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SolicitudesGlobales_Result4>("SP_SolicitudesGlobales");
         }
     }
 }

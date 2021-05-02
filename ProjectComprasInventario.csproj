@@ -33,11 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -55,9 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CambiarEstadoSolicitudController.cs" />
+    <Compile Include="Controllers\EliminarSolicitudController.cs" />
+    <Compile Include="Controllers\guardarSolicitudController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MostrarFormularioController.cs" />
+    <Compile Include="Controllers\SeleccionarEstadosSolicitudController.cs" />
+    <Compile Include="Controllers\SeleccionarProveedoresController.cs" />
     <Compile Include="Controllers\SeleccionarSuministroController.cs" />
     <Compile Include="Controllers\Session.cs" />
+    <Compile Include="Controllers\SolicitudesEmpleadoController.cs" />
+    <Compile Include="Controllers\SolicitudesGlobalesController.cs" />
+    <Compile Include="Controllers\SolicitudesRecibidasController.cs" />
     <Compile Include="Models\archivos_cotizaciones.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
@@ -112,6 +127,15 @@
     <Compile Include="Models\solicitud_cotizacion.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SP_AprobarSolicitudes_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_AprobarSolicitudes_Result1.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_AprobarSolicitudes_Result2.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
@@ -127,7 +151,43 @@
     <Compile Include="Models\SP_Login_Result2.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SP_Login_Result3.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedores_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarSolicitudes_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SP_SeleccionarSuministros_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesAprobarDenegar_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesGlobales_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesGlobales_Result1.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesGlobales_Result2.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesGlobales_Result3.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesGlobales_Result4.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesUsuario_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SolicitudesUsuario_Result1.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_TipoSolicitudes_Result.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\suministros.cs">
@@ -144,11 +204,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\frmCreearSolicitud.cs">
+    <Compile Include="Views\frmAprobarSolicitudes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmCreearSolicitud.Designer.cs">
-      <DependentUpon>frmCreearSolicitud.cs</DependentUpon>
+    <Compile Include="Views\frmAprobarSolicitudes.Designer.cs">
+      <DependentUpon>frmAprobarSolicitudes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCrearCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCrearCotizacion.Designer.cs">
+      <DependentUpon>frmCrearCotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmCrearSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmCrearSolicitud.Designer.cs">
+      <DependentUpon>frmCrearSolicitud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmGestionarSolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmGestionarSolicitudes.Designer.cs">
+      <DependentUpon>frmGestionarSolicitudes.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmLogin.cs">
       <SubType>Form</SubType>
@@ -161,6 +239,12 @@
     </Compile>
     <Compile Include="Views\frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmNotificaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmNotificaciones.Designer.cs">
+      <DependentUpon>frmNotificaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmSeleccionarSuministro.cs">
       <SubType>Form</SubType>
@@ -178,14 +262,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\frmCreearSolicitud.resx">
-      <DependentUpon>frmCreearSolicitud.cs</DependentUpon>
+    <EmbeddedResource Include="Views\frmAprobarSolicitudes.resx">
+      <DependentUpon>frmAprobarSolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCrearCotizacion.resx">
+      <DependentUpon>frmCrearCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmCrearSolicitud.resx">
+      <DependentUpon>frmCrearSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmGestionarSolicitudes.resx">
+      <DependentUpon>frmGestionarSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmNotificaciones.resx">
+      <DependentUpon>frmNotificaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmSeleccionarSuministro.resx">
       <DependentUpon>frmSeleccionarSuministro.cs</DependentUpon>
@@ -222,6 +318,17 @@
       <DependentUpon>Entity.edmx</DependentUpon>
       <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\gestionar cotizaciones.png" />
+    <None Include="Resources\administracion.png" />
+    <None Include="Resources\add-group.png" />
+    <None Include="Resources\usuarios.png" />
+    <None Include="Resources\aprobacion.png" />
+    <None Include="Resources\archivo.png" />
+    <None Include="Resources\nuevo.png" />
+    <None Include="Resources\gestionar.png" />
+    <None Include="Resources\simbolo-de-interfaz-de-lista.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\buzon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\usuario.png" />

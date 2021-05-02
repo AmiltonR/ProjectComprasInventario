@@ -15,5 +15,6 @@ namespace ProjectComprasInventario.Controllers
        public static String nombres;
        public static  String apellidos;
        public static String usuario;
+        public static String depart;
     }
 }

@@ -33,7 +33,7 @@ namespace ProjectComprasInventario.Views
             this.txtSuministro = new System.Windows.Forms.TextBox();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.dgvSuministros = new System.Windows.Forms.DataGridView();
-            this.txtIdSuministro = new System.Windows.Forms.TextBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuministros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,19 +48,20 @@ namespace ProjectComprasInventario.Views
             // 
             // txtSuministro
             // 
-            this.txtSuministro.Location = new System.Drawing.Point(259, 81);
+            this.txtSuministro.Location = new System.Drawing.Point(157, 81);
             this.txtSuministro.Name = "txtSuministro";
             this.txtSuministro.Size = new System.Drawing.Size(333, 20);
             this.txtSuministro.TabIndex = 1;
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(598, 79);
+            this.btnSeleccionar.Location = new System.Drawing.Point(506, 79);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
             this.btnSeleccionar.TabIndex = 2;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // dgvSuministros
             // 
@@ -69,20 +70,24 @@ namespace ProjectComprasInventario.Views
             this.dgvSuministros.Name = "dgvSuministros";
             this.dgvSuministros.Size = new System.Drawing.Size(678, 443);
             this.dgvSuministros.TabIndex = 3;
+            this.dgvSuministros.DoubleClick += new System.EventHandler(this.dgvSuministros_DoubleClick);
             // 
-            // txtIdSuministro
+            // btnCerrar
             // 
-            this.txtIdSuministro.Location = new System.Drawing.Point(162, 81);
-            this.txtIdSuministro.Name = "txtIdSuministro";
-            this.txtIdSuministro.Size = new System.Drawing.Size(91, 20);
-            this.txtIdSuministro.TabIndex = 4;
+            this.btnCerrar.Location = new System.Drawing.Point(756, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 38);
+            this.btnCerrar.TabIndex = 4;
+            this.btnCerrar.Text = "X";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmSeleccionarSuministro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 628);
-            this.Controls.Add(this.txtIdSuministro);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvSuministros);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.txtSuministro);
@@ -104,6 +109,6 @@ namespace ProjectComprasInventario.Views
         private System.Windows.Forms.TextBox txtSuministro;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.DataGridView dgvSuministros;
-        private System.Windows.Forms.TextBox txtIdSuministro;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

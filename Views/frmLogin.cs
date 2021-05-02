@@ -38,5 +38,11 @@ namespace ProjectComprasInventario.Views
                 lblInfo.Text = "Credenciales incorrectas";
             }
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            lblInfo.Text = String.Empty;
+            txtContra.PasswordChar='*';
+        }
     }
 }

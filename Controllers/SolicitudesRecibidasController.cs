@@ -8,23 +8,26 @@ using ProjectComprasInventario.Models;
 
 namespace ProjectComprasInventario.Controllers
 {
-    class SeleccionarSuministroController
+    class SolicitudesRecibidasController
     {
-       public void seleccionarSuministro(DataGridView dgv)
+        public bool seleccionarSolicitudesRecibidas(int dep, int tipo, DataGridView dgv)
         {
+            bool isSuccessful;
             using (Entity db = new Entity())
             {
                 try
                 {
-                    var userList = db.SP_SeleccionarSuministros().ToList();
-                    dgv.DataSource = userList;
+                    var solicitudes = db.SP_AprobarSolicitudes(dep,tipo);
+                    dgv.DataSource = solicitudes;
+                    isSuccessful = true;
                 }
                 catch (Exception)
                 {
-
+                    isSuccessful = false;
                     throw;
-                } 
+                }
             }
+            return isSuccessful;
         }
     }
 }
