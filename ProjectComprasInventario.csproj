@@ -225,6 +225,12 @@
     <Compile Include="Views\frmCrearSolicitud.Designer.cs">
       <DependentUpon>frmCrearSolicitud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmGestionarCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmGestionarCotizacion.Designer.cs">
+      <DependentUpon>frmGestionarCotizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmGestionarSolicitudes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,12 @@
     </Compile>
     <Compile Include="Views\frmNotificaciones.Designer.cs">
       <DependentUpon>frmNotificaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmNuevoUsuario.Designer.cs">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmSeleccionarSuministro.cs">
       <SubType>Form</SubType>
@@ -274,6 +286,9 @@
     <EmbeddedResource Include="Views\frmCrearSolicitud.resx">
       <DependentUpon>frmCrearSolicitud.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmGestionarCotizacion.resx">
+      <DependentUpon>frmGestionarCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmGestionarSolicitudes.resx">
       <DependentUpon>frmGestionarSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmNotificaciones.resx">
       <DependentUpon>frmNotificaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmNuevoUsuario.resx">
+      <DependentUpon>frmNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmSeleccionarSuministro.resx">
       <DependentUpon>frmSeleccionarSuministro.cs</DependentUpon>
