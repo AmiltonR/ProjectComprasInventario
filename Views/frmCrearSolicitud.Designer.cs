@@ -45,7 +45,7 @@ namespace ProjectComprasInventario.Views
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(299, 215);
+            this.label1.Location = new System.Drawing.Point(55, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@ namespace ProjectComprasInventario.Views
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(299, 248);
+            this.label2.Location = new System.Drawing.Point(56, 155);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 1;
@@ -67,19 +67,19 @@ namespace ProjectComprasInventario.Views
             this.txtSuministro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSuministro.Enabled = false;
             this.txtSuministro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuministro.Location = new System.Drawing.Point(402, 215);
+            this.txtSuministro.Location = new System.Drawing.Point(168, 102);
             this.txtSuministro.Name = "txtSuministro";
             this.txtSuministro.Size = new System.Drawing.Size(227, 22);
             this.txtSuministro.TabIndex = 2;
             // 
             // btnSeleccionarSuministro
             // 
-            this.btnSeleccionarSuministro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.btnSeleccionarSuministro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(181)))), ((int)(((byte)(207)))));
             this.btnSeleccionarSuministro.FlatAppearance.BorderSize = 0;
             this.btnSeleccionarSuministro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionarSuministro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionarSuministro.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSeleccionarSuministro.Location = new System.Drawing.Point(660, 212);
+            this.btnSeleccionarSuministro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarSuministro.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSeleccionarSuministro.Location = new System.Drawing.Point(417, 101);
             this.btnSeleccionarSuministro.Name = "btnSeleccionarSuministro";
             this.btnSeleccionarSuministro.Size = new System.Drawing.Size(105, 23);
             this.btnSeleccionarSuministro.TabIndex = 4;
@@ -89,12 +89,12 @@ namespace ProjectComprasInventario.Views
             // 
             // btnGuardarSolicitud
             // 
-            this.btnGuardarSolicitud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.btnGuardarSolicitud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(181)))), ((int)(((byte)(207)))));
             this.btnGuardarSolicitud.FlatAppearance.BorderSize = 0;
             this.btnGuardarSolicitud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarSolicitud.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarSolicitud.ForeColor = System.Drawing.Color.DimGray;
-            this.btnGuardarSolicitud.Location = new System.Drawing.Point(384, 357);
+            this.btnGuardarSolicitud.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarSolicitud.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGuardarSolicitud.Location = new System.Drawing.Point(738, 600);
             this.btnGuardarSolicitud.Name = "btnGuardarSolicitud";
             this.btnGuardarSolicitud.Size = new System.Drawing.Size(118, 46);
             this.btnGuardarSolicitud.TabIndex = 5;
@@ -106,31 +106,31 @@ namespace ProjectComprasInventario.Views
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(470, 56);
+            this.label3.Location = new System.Drawing.Point(55, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 22);
+            this.label3.Size = new System.Drawing.Size(156, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "Crear Solicitud";
             // 
             // numupdownCantidad
             // 
             this.numupdownCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numupdownCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numupdownCantidad.Location = new System.Drawing.Point(402, 249);
+            this.numupdownCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numupdownCantidad.Location = new System.Drawing.Point(168, 151);
             this.numupdownCantidad.Name = "numupdownCantidad";
-            this.numupdownCantidad.Size = new System.Drawing.Size(227, 22);
+            this.numupdownCantidad.Size = new System.Drawing.Size(227, 24);
             this.numupdownCantidad.TabIndex = 7;
             // 
             // btnMisSolicitudes
             // 
-            this.btnMisSolicitudes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(223)))), ((int)(((byte)(248)))));
+            this.btnMisSolicitudes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(181)))), ((int)(((byte)(207)))));
             this.btnMisSolicitudes.FlatAppearance.BorderSize = 0;
             this.btnMisSolicitudes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMisSolicitudes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMisSolicitudes.ForeColor = System.Drawing.Color.DimGray;
-            this.btnMisSolicitudes.Location = new System.Drawing.Point(533, 357);
+            this.btnMisSolicitudes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMisSolicitudes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnMisSolicitudes.Location = new System.Drawing.Point(874, 600);
             this.btnMisSolicitudes.Name = "btnMisSolicitudes";
             this.btnMisSolicitudes.Size = new System.Drawing.Size(149, 46);
             this.btnMisSolicitudes.TabIndex = 8;

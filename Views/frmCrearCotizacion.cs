@@ -17,7 +17,8 @@ namespace ProjectComprasInventario.Views
         SolicitudesGlobalesController solicitudesGlob = new SolicitudesGlobalesController();
         SeleccionarProveedoresController proveedores = new SeleccionarProveedoresController();
         DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-        public int[] arrayProveedores = new int[5];
+        public int[] arrayProveedores = new int[3];
+        ExportarPDF exp = new ExportarPDF();
         public frmCrearCotizacion()
         {
             InitializeComponent();
@@ -34,7 +35,10 @@ namespace ProjectComprasInventario.Views
             solicitudesGlob.solicitudesGlobales(dgvSolicitudes);
             chk.HeaderText = "Seleccionar";
             chk.Name = "chk";
-            dgvProveedores.Columns.Add(chk);   
+            dgvProveedores.Columns.Add(chk);
+
+            //PARÁMETROS DE TOOLTIP
+            this.toolTip1.SetToolTip(btnGuardar, "Esta acción enlaza y guarda la cotización con los proveedores. No envía la cotización a los proveedores");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -46,19 +50,68 @@ namespace ProjectComprasInventario.Views
         {
             
         }
+     
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            revisarChecked();
+        }
 
+        void DataGridViewCurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvProveedores.IsCurrentCellDirty)
+            {
+                dgvProveedores.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
         private void revisarChecked()
         {
-            int i = 0;
-            foreach (DataGridViewRow row in dgvProveedores.Rows)
-            {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[2];
-                if (chk.Selected == true)
+            /*if (dgvProveedores.Rows[0].Cells[0].Value != null || dgvProveedores.Rows[1].Cells[0].Value != null || dgvProveedores.Rows[2].Cells[0].Value != null)
+            {*/
+                for (int i = 0; i < dgvProveedores.Rows.Count; i++)
                 {
-                    arrayProveedores[i] = 1;
-                    i++;
+                    bool? isCellChecked = (bool?)dgvProveedores.Rows[i].Cells[0].Value;
+
+                    if (isCellChecked!=null)
+                    {
+                        if (isCellChecked==true)
+                        {
+                            arrayProveedores[i] = i + 1;
+                        }
+                    }
+                    else
+                     {
+                        arrayProveedores[i] = 0;
+                    }
                 }
-            }
+
+                exportar();
+           /* }
+            else
+            { 
+                MessageBox.Show("Debe seleccionar los proveedores");
+            }*/
+        }
+            
+
+           
+
+            /*for (int i = 0; i < dgvProveedores.Rows.Count; i++)
+            {
+                Console.WriteLine(arrayProveedores[i]);
+            }*/
+        private void exportar()
+        {
+            exp.guardarPDFSO(dgvSolicitudes);
+        }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            exportar();
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }

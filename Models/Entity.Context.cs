@@ -280,5 +280,18 @@ namespace ProjectComprasInventario.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SolicitudesGlobales_Result4>("SP_SolicitudesGlobales");
         }
+    
+        public virtual int SP_GuardarCotizacion(string nombre, byte[] archivo)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var archivoParameter = archivo != null ?
+                new ObjectParameter("archivo", archivo) :
+                new ObjectParameter("archivo", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GuardarCotizacion", nombreParameter, archivoParameter);
+        }
     }
 }

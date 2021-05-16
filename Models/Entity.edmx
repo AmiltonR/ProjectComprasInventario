@@ -380,6 +380,10 @@
         <Function Name="SP_EliminarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_GuardarCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="archivo" Type="varbinary(max)" Mode="In" />
+        </Function>
         <Function Name="SP_GuardarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="usuario" Type="int" Mode="In" />
           <Parameter Name="suministro" Type="int" Mode="In" />
@@ -1029,6 +1033,10 @@
           </FunctionImport>
           <FunctionImport Name="SP_SeleccionarProveedores" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarProveedores_Result)" />
           <FunctionImport Name="SP_SolicitudesGlobales" ReturnType="Collection(comprasInventarioModel.SP_SolicitudesGlobales_Result4)" />
+          <FunctionImport Name="SP_GuardarCotizacion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="archivo" Mode="In" Type="Binary" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1462,6 +1470,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GuardarCotizacion" FunctionName="comprasInventarioModel.Store.SP_GuardarCotizacion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
