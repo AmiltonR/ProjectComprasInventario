@@ -281,7 +281,7 @@ namespace ProjectComprasInventario.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SolicitudesGlobales_Result4>("SP_SolicitudesGlobales");
         }
     
-        public virtual int SP_GuardarCotizacion(string nombre, byte[] archivo)
+        public virtual ObjectResult<Nullable<int>> SP_GuardarCotizacion(string nombre, byte[] archivo, Nullable<int> usuario)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("nombre", nombre) :
@@ -291,7 +291,82 @@ namespace ProjectComprasInventario.Models
                 new ObjectParameter("archivo", archivo) :
                 new ObjectParameter("archivo", typeof(byte[]));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GuardarCotizacion", nombreParameter, archivoParameter);
+            var usuarioParameter = usuario.HasValue ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SP_GuardarCotizacion", nombreParameter, archivoParameter, usuarioParameter);
+        }
+    
+        public virtual ObjectResult<SP_IdArchivoCotizacion_Result> SP_IdArchivoCotizacion(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_IdArchivoCotizacion_Result>("SP_IdArchivoCotizacion", nombreParameter);
+        }
+    
+        public virtual ObjectResult<SP_IdCotizacion_Result1> SP_IdCotizacion(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_IdCotizacion_Result1>("SP_IdCotizacion", idParameter);
+        }
+    
+        public virtual int SP_CotizacionXProveedor(Nullable<int> cotizacion, Nullable<int> pr)
+        {
+            var cotizacionParameter = cotizacion.HasValue ?
+                new ObjectParameter("cotizacion", cotizacion) :
+                new ObjectParameter("cotizacion", typeof(int));
+    
+            var prParameter = pr.HasValue ?
+                new ObjectParameter("pr", pr) :
+                new ObjectParameter("pr", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CotizacionXProveedor", cotizacionParameter, prParameter);
+        }
+    
+        public virtual ObjectResult<SP_SeleccionarCotizaciones_Result1> SP_SeleccionarCotizaciones()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarCotizaciones_Result1>("SP_SeleccionarCotizaciones");
+        }
+    
+        public virtual int SP_GuardarCotizacionRecibida(string nombre, byte[] archivo, Nullable<int> id)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var archivoParameter = archivo != null ?
+                new ObjectParameter("archivo", archivo) :
+                new ObjectParameter("archivo", typeof(byte[]));
+    
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GuardarCotizacionRecibida", nombreParameter, archivoParameter, idParameter);
+        }
+    
+        public virtual ObjectResult<SP_SeleccionarProveedoresCotizaciones_Result7> SP_SeleccionarProveedoresCotizaciones(Nullable<int> cotizacion)
+        {
+            var cotizacionParameter = cotizacion.HasValue ?
+                new ObjectParameter("cotizacion", cotizacion) :
+                new ObjectParameter("cotizacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarProveedoresCotizaciones_Result7>("SP_SeleccionarProveedoresCotizaciones", cotizacionParameter);
+        }
+    
+        public virtual ObjectResult<SP_SeleccionarCotizacion_Result> SP_SeleccionarCotizacion(Nullable<int> cotizacion)
+        {
+            var cotizacionParameter = cotizacion.HasValue ?
+                new ObjectParameter("cotizacion", cotizacion) :
+                new ObjectParameter("cotizacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_SeleccionarCotizacion_Result>("SP_SeleccionarCotizacion", cotizacionParameter);
         }
     }
 }

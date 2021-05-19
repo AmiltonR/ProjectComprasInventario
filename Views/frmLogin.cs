@@ -19,6 +19,7 @@ namespace ProjectComprasInventario.Views
         }
 
         private void btnAcceder_Click(object sender, EventArgs e){
+            
             int confirmacion;
             String user = txtUsuario.Text;
             String pass = txtContra.Text;
@@ -28,21 +29,28 @@ namespace ProjectComprasInventario.Views
 
             if (confirmacion==1)
             {
-                lblInfo.Text = "Ingreso con éxito";
                 frmMainMenu menu = new frmMainMenu();
                 this.Hide();
                 menu.Show();
             }
             else
             {
-                lblInfo.Text = "Credenciales incorrectas";
+                frmNotificaciones not = new frmNotificaciones();
+                not.msg = "CREDENCIALES INCORRECTAS";
+                not.Show();
+                txtContra.Text = String.Empty;
+                txtUsuario.Text = String.Empty;
             }
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            lblInfo.Text = String.Empty;
             txtContra.PasswordChar='*';
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

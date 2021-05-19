@@ -31,47 +31,49 @@ namespace ProjectComprasInventario.Views
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelUsuarios = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNuevoUsuario = new System.Windows.Forms.Button();
-            this.btnUsuarios = new System.Windows.Forms.Button();
             this.panelCotizaciones = new System.Windows.Forms.Panel();
-            this.btnGestionarCotizaciones = new System.Windows.Forms.Button();
-            this.btnRealizarCotizacion = new System.Windows.Forms.Button();
-            this.btnCotizaciones = new System.Windows.Forms.Button();
-            this.btnSolicitudesRecibidas = new System.Windows.Forms.Button();
             this.panelMisSolicitudes = new System.Windows.Forms.Panel();
-            this.btnMisSolicitudes = new System.Windows.Forms.Button();
-            this.btnNueva = new System.Windows.Forms.Button();
-            this.btnCloseinMenu = new System.Windows.Forms.Button();
-            this.btnSolicitud = new System.Windows.Forms.Button();
             this.panelUser = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUserInfo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
             this.panelWindowsControls = new System.Windows.Forms.Panel();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.btnMaximize = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.panelOrdenes = new System.Windows.Forms.Panel();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
+            this.btnSuministros = new System.Windows.Forms.Button();
             this.btnOrdenes = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnNuevoUsuario = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnGestionarCotizaciones = new System.Windows.Forms.Button();
+            this.btnRealizarCotizacion = new System.Windows.Forms.Button();
+            this.btnCotizaciones = new System.Windows.Forms.Button();
+            this.btnSolicitudesRecibidas = new System.Windows.Forms.Button();
+            this.btnMisSolicitudes = new System.Windows.Forms.Button();
+            this.btnNueva = new System.Windows.Forms.Button();
+            this.btnCloseinMenu = new System.Windows.Forms.Button();
+            this.btnSolicitud = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
             this.panelUsuarios.SuspendLayout();
             this.panelCotizaciones.SuspendLayout();
             this.panelMisSolicitudes.SuspendLayout();
             this.panelUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelWindowsControls.SuspendLayout();
-            this.panelOrdenes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.panelSideMenu.Controls.Add(this.panelOrdenes);
+            this.panelSideMenu.Controls.Add(this.btnReportes);
+            this.panelSideMenu.Controls.Add(this.btnSuministros);
+            this.panelSideMenu.Controls.Add(this.btnOrdenes);
             this.panelSideMenu.Controls.Add(this.panelUsuarios);
             this.panelSideMenu.Controls.Add(this.btnUsuarios);
             this.panelSideMenu.Controls.Add(this.panelCotizaciones);
@@ -90,6 +92,7 @@ namespace ProjectComprasInventario.Views
             // panelUsuarios
             // 
             this.panelUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(62)))), ((int)(((byte)(98)))));
+            this.panelUsuarios.Controls.Add(this.button2);
             this.panelUsuarios.Controls.Add(this.button1);
             this.panelUsuarios.Controls.Add(this.btnNuevoUsuario);
             this.panelUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
@@ -97,6 +100,183 @@ namespace ProjectComprasInventario.Views
             this.panelUsuarios.Name = "panelUsuarios";
             this.panelUsuarios.Size = new System.Drawing.Size(250, 92);
             this.panelUsuarios.TabIndex = 9;
+            // 
+            // panelCotizaciones
+            // 
+            this.panelCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(62)))), ((int)(((byte)(98)))));
+            this.panelCotizaciones.Controls.Add(this.btnGestionarCotizaciones);
+            this.panelCotizaciones.Controls.Add(this.btnRealizarCotizacion);
+            this.panelCotizaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCotizaciones.Location = new System.Drawing.Point(0, 399);
+            this.panelCotizaciones.Name = "panelCotizaciones";
+            this.panelCotizaciones.Size = new System.Drawing.Size(250, 93);
+            this.panelCotizaciones.TabIndex = 7;
+            // 
+            // panelMisSolicitudes
+            // 
+            this.panelMisSolicitudes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(62)))), ((int)(((byte)(98)))));
+            this.panelMisSolicitudes.Controls.Add(this.btnMisSolicitudes);
+            this.panelMisSolicitudes.Controls.Add(this.btnNueva);
+            this.panelMisSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMisSolicitudes.Location = new System.Drawing.Point(0, 219);
+            this.panelMisSolicitudes.Name = "panelMisSolicitudes";
+            this.panelMisSolicitudes.Size = new System.Drawing.Size(250, 90);
+            this.panelMisSolicitudes.TabIndex = 4;
+            // 
+            // panelUser
+            // 
+            this.panelUser.Controls.Add(this.pictureBox1);
+            this.panelUser.Controls.Add(this.lblUserInfo);
+            this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelUser.Location = new System.Drawing.Point(0, 0);
+            this.panelUser.Name = "panelUser";
+            this.panelUser.Size = new System.Drawing.Size(250, 174);
+            this.panelUser.TabIndex = 0;
+            // 
+            // lblUserInfo
+            // 
+            this.lblUserInfo.AutoSize = true;
+            this.lblUserInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserInfo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblUserInfo.Location = new System.Drawing.Point(86, 150);
+            this.lblUserInfo.Name = "lblUserInfo";
+            this.lblUserInfo.Size = new System.Drawing.Size(77, 16);
+            this.lblUserInfo.TabIndex = 0;
+            this.lblUserInfo.Text = "User Name";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.panel2.Controls.Add(this.lblHeader);
+            this.panel2.Controls.Add(this.panelWindowsControls);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(250, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1090, 94);
+            this.panel2.TabIndex = 1;
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.BackColor = System.Drawing.Color.Transparent;
+            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblHeader.Location = new System.Drawing.Point(19, 37);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(199, 24);
+            this.lblHeader.TabIndex = 1;
+            this.lblHeader.Text = "Compras de Inventario";
+            // 
+            // panelWindowsControls
+            // 
+            this.panelWindowsControls.Controls.Add(this.btnMinimize);
+            this.panelWindowsControls.Controls.Add(this.btnClose);
+            this.panelWindowsControls.Location = new System.Drawing.Point(962, 0);
+            this.panelWindowsControls.Name = "panelWindowsControls";
+            this.panelWindowsControls.Size = new System.Drawing.Size(128, 44);
+            this.panelWindowsControls.TabIndex = 0;
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(71)))));
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(250, 94);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1090, 812);
+            this.panelContainer.TabIndex = 2;
+            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Image = global::ProjectComprasInventario.Properties.Resources.minimizar;
+            this.btnMinimize.Location = new System.Drawing.Point(-12, 0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(70, 44);
+            this.btnMinimize.TabIndex = 2;
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::ProjectComprasInventario.Properties.Resources.cancel;
+            this.btnClose.Location = new System.Drawing.Point(58, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(70, 44);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnReportes.Image = global::ProjectComprasInventario.Properties.Resources.btn_reportes;
+            this.btnReportes.Location = new System.Drawing.Point(0, 719);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(250, 45);
+            this.btnReportes.TabIndex = 12;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportes.UseVisualStyleBackColor = true;
+            // 
+            // btnSuministros
+            // 
+            this.btnSuministros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSuministros.FlatAppearance.BorderSize = 0;
+            this.btnSuministros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSuministros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuministros.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSuministros.Image = global::ProjectComprasInventario.Properties.Resources.btn_suministros;
+            this.btnSuministros.Location = new System.Drawing.Point(0, 674);
+            this.btnSuministros.Name = "btnSuministros";
+            this.btnSuministros.Size = new System.Drawing.Size(250, 45);
+            this.btnSuministros.TabIndex = 11;
+            this.btnSuministros.Text = "Suministros";
+            this.btnSuministros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSuministros.UseVisualStyleBackColor = true;
+            // 
+            // btnOrdenes
+            // 
+            this.btnOrdenes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrdenes.FlatAppearance.BorderSize = 0;
+            this.btnOrdenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrdenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrdenes.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnOrdenes.Image = global::ProjectComprasInventario.Properties.Resources.btn_orden_compra;
+            this.btnOrdenes.Location = new System.Drawing.Point(0, 629);
+            this.btnOrdenes.Name = "btnOrdenes";
+            this.btnOrdenes.Size = new System.Drawing.Size(250, 45);
+            this.btnOrdenes.TabIndex = 10;
+            this.btnOrdenes.Text = "Ordenes de Compra";
+            this.btnOrdenes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOrdenes.UseVisualStyleBackColor = true;
+            this.btnOrdenes.Click += new System.EventHandler(this.btnOrdenes_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button2.Image = global::ProjectComprasInventario.Properties.Resources.add_group;
+            this.button2.Location = new System.Drawing.Point(0, 90);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(250, 45);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Nuevo Usuario";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -149,17 +329,6 @@ namespace ProjectComprasInventario.Views
             this.btnUsuarios.UseVisualStyleBackColor = true;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
-            // panelCotizaciones
-            // 
-            this.panelCotizaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(62)))), ((int)(((byte)(98)))));
-            this.panelCotizaciones.Controls.Add(this.btnGestionarCotizaciones);
-            this.panelCotizaciones.Controls.Add(this.btnRealizarCotizacion);
-            this.panelCotizaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCotizaciones.Location = new System.Drawing.Point(0, 399);
-            this.panelCotizaciones.Name = "panelCotizaciones";
-            this.panelCotizaciones.Size = new System.Drawing.Size(250, 93);
-            this.panelCotizaciones.TabIndex = 7;
-            // 
             // btnGestionarCotizaciones
             // 
             this.btnGestionarCotizaciones.Dock = System.Windows.Forms.DockStyle.Top;
@@ -173,7 +342,7 @@ namespace ProjectComprasInventario.Views
             this.btnGestionarCotizaciones.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnGestionarCotizaciones.Size = new System.Drawing.Size(250, 45);
             this.btnGestionarCotizaciones.TabIndex = 2;
-            this.btnGestionarCotizaciones.Text = "Gestionar Cotización";
+            this.btnGestionarCotizaciones.Text = "Gestionar Cotizaciones";
             this.btnGestionarCotizaciones.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGestionarCotizaciones.UseVisualStyleBackColor = true;
             this.btnGestionarCotizaciones.Click += new System.EventHandler(this.btnGestionarCotizaciones_Click);
@@ -230,17 +399,6 @@ namespace ProjectComprasInventario.Views
             this.btnSolicitudesRecibidas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSolicitudesRecibidas.UseVisualStyleBackColor = true;
             this.btnSolicitudesRecibidas.Click += new System.EventHandler(this.btnSolicitudesRecibidas_Click);
-            // 
-            // panelMisSolicitudes
-            // 
-            this.panelMisSolicitudes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(62)))), ((int)(((byte)(98)))));
-            this.panelMisSolicitudes.Controls.Add(this.btnMisSolicitudes);
-            this.panelMisSolicitudes.Controls.Add(this.btnNueva);
-            this.panelMisSolicitudes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMisSolicitudes.Location = new System.Drawing.Point(0, 219);
-            this.panelMisSolicitudes.Name = "panelMisSolicitudes";
-            this.panelMisSolicitudes.Size = new System.Drawing.Size(250, 90);
-            this.panelMisSolicitudes.TabIndex = 4;
             // 
             // btnMisSolicitudes
             // 
@@ -315,16 +473,6 @@ namespace ProjectComprasInventario.Views
             this.btnSolicitud.UseVisualStyleBackColor = true;
             this.btnSolicitud.Click += new System.EventHandler(this.btnSolicitud_Click);
             // 
-            // panelUser
-            // 
-            this.panelUser.Controls.Add(this.pictureBox1);
-            this.panelUser.Controls.Add(this.lblUserInfo);
-            this.panelUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUser.Location = new System.Drawing.Point(0, 0);
-            this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(250, 174);
-            this.panelUser.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProjectComprasInventario.Properties.Resources.usuario;
@@ -333,120 +481,6 @@ namespace ProjectComprasInventario.Views
             this.pictureBox1.Size = new System.Drawing.Size(131, 135);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblUserInfo
-            // 
-            this.lblUserInfo.AutoSize = true;
-            this.lblUserInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblUserInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserInfo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblUserInfo.Location = new System.Drawing.Point(86, 150);
-            this.lblUserInfo.Name = "lblUserInfo";
-            this.lblUserInfo.Size = new System.Drawing.Size(77, 16);
-            this.lblUserInfo.TabIndex = 0;
-            this.lblUserInfo.Text = "User Name";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.panel2.Controls.Add(this.lblHeader);
-            this.panel2.Controls.Add(this.panelWindowsControls);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(250, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1090, 94);
-            this.panel2.TabIndex = 1;
-            // 
-            // lblHeader
-            // 
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.BackColor = System.Drawing.Color.Transparent;
-            this.lblHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblHeader.Location = new System.Drawing.Point(19, 37);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(199, 24);
-            this.lblHeader.TabIndex = 1;
-            this.lblHeader.Text = "Compras de Inventario";
-            // 
-            // panelWindowsControls
-            // 
-            this.panelWindowsControls.Controls.Add(this.btnMinimize);
-            this.panelWindowsControls.Controls.Add(this.btnMaximize);
-            this.panelWindowsControls.Controls.Add(this.btnClose);
-            this.panelWindowsControls.Location = new System.Drawing.Point(880, 0);
-            this.panelWindowsControls.Name = "panelWindowsControls";
-            this.panelWindowsControls.Size = new System.Drawing.Size(210, 44);
-            this.panelWindowsControls.TabIndex = 0;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Image = global::ProjectComprasInventario.Properties.Resources.minimizar;
-            this.btnMinimize.Location = new System.Drawing.Point(0, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(70, 44);
-            this.btnMinimize.TabIndex = 2;
-            this.btnMinimize.UseVisualStyleBackColor = true;
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Image = global::ProjectComprasInventario.Properties.Resources.opcion_de_maximizar_tamano;
-            this.btnMaximize.Location = new System.Drawing.Point(70, 0);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(70, 44);
-            this.btnMaximize.TabIndex = 1;
-            this.btnMaximize.UseVisualStyleBackColor = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::ProjectComprasInventario.Properties.Resources.cancel;
-            this.btnClose.Location = new System.Drawing.Point(140, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(70, 44);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(71)))));
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(250, 94);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1090, 812);
-            this.panelContainer.TabIndex = 2;
-            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
-            // 
-            // panelOrdenes
-            // 
-            this.panelOrdenes.Controls.Add(this.btnOrdenes);
-            this.panelOrdenes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelOrdenes.Location = new System.Drawing.Point(0, 629);
-            this.panelOrdenes.Name = "panelOrdenes";
-            this.panelOrdenes.Size = new System.Drawing.Size(250, 149);
-            this.panelOrdenes.TabIndex = 10;
-            // 
-            // btnOrdenes
-            // 
-            this.btnOrdenes.FlatAppearance.BorderSize = 0;
-            this.btnOrdenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrdenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrdenes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnOrdenes.Location = new System.Drawing.Point(0, 0);
-            this.btnOrdenes.Name = "btnOrdenes";
-            this.btnOrdenes.Size = new System.Drawing.Size(250, 45);
-            this.btnOrdenes.TabIndex = 0;
-            this.btnOrdenes.Text = "Ordenes de Compra";
-            this.btnOrdenes.UseVisualStyleBackColor = true;
             // 
             // frmMainMenu
             // 
@@ -466,11 +500,10 @@ namespace ProjectComprasInventario.Views
             this.panelMisSolicitudes.ResumeLayout(false);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelWindowsControls.ResumeLayout(false);
-            this.panelOrdenes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,7 +519,6 @@ namespace ProjectComprasInventario.Views
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.Panel panelWindowsControls;
         private System.Windows.Forms.Button btnMinimize;
-        private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelContainer;
@@ -502,7 +534,9 @@ namespace ProjectComprasInventario.Views
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Button btnNuevoUsuario;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panelOrdenes;
         private System.Windows.Forms.Button btnOrdenes;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSuministros;
+        private System.Windows.Forms.Button btnReportes;
     }
 }

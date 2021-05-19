@@ -65,13 +65,18 @@
     <Compile Include="Controllers\CambiarEstadoSolicitudController.cs" />
     <Compile Include="Controllers\EliminarSolicitudController.cs" />
     <Compile Include="Controllers\ExportarPDF.cs" />
+    <Compile Include="Controllers\GestionarCotizacionesController.cs" />
+    <Compile Include="Controllers\GuardarCotizacionXProveedor.cs" />
     <Compile Include="Controllers\GuardarPDF.cs" />
+    <Compile Include="Controllers\GuardarPDFRecibido.cs" />
     <Compile Include="Controllers\guardarSolicitudController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MostrarFormularioController.cs" />
+    <Compile Include="Controllers\SeleccionarCotizacionController.cs" />
     <Compile Include="Controllers\SeleccionarEstadosSolicitudController.cs" />
     <Compile Include="Controllers\SeleccionarProveedoresController.cs" />
     <Compile Include="Controllers\SeleccionarSuministroController.cs" />
+    <Compile Include="Controllers\SelecProvCotizacionController.cs" />
     <Compile Include="Controllers\Session.cs" />
     <Compile Include="Controllers\SolicitudesEmpleadoController.cs" />
     <Compile Include="Controllers\SolicitudesGlobalesController.cs" />
@@ -145,6 +150,15 @@
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SP_IdArchivoCotizacion_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_IdCotizacion_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_IdCotizacion_Result1.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SP_Login_Result.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
@@ -155,6 +169,39 @@
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_Login_Result3.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarCotizaciones_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarCotizaciones_Result1.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarCotizacion_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result1.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result2.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result3.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result4.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result5.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result6.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_SeleccionarProveedoresCotizaciones_Result7.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_SeleccionarProveedores_Result.cs">
@@ -225,6 +272,12 @@
     <Compile Include="Views\frmCrearSolicitud.Designer.cs">
       <DependentUpon>frmCrearSolicitud.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmDetalleCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmDetalleCotizacion.Designer.cs">
+      <DependentUpon>frmDetalleCotizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmGestionarCotizacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +339,9 @@
     <EmbeddedResource Include="Views\frmCrearSolicitud.resx">
       <DependentUpon>frmCrearSolicitud.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmDetalleCotizacion.resx">
+      <DependentUpon>frmDetalleCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmGestionarCotizacion.resx">
       <DependentUpon>frmGestionarCotizacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -339,6 +395,11 @@
       <DependentUpon>Entity.edmx</DependentUpon>
       <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\btn-reportes.png" />
+    <None Include="Resources\btn-suministros1.png" />
+    <None Include="Resources\btn-suministros.png" />
+    <None Include="Resources\btn-orden-compra.png" />
+    <None Include="Resources\a62c7902-9874-4600-8ac5-ca3636f51fad.jpg" />
     <None Include="Resources\btn-eliminar.png" />
     <None Include="Resources\btn-editar.png" />
     <None Include="Resources\btn-guardar.png" />

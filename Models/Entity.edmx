@@ -362,6 +362,10 @@
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="estado" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_CotizacionXProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cotizacion" Type="int" Mode="In" />
+          <Parameter Name="pr" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -383,6 +387,12 @@
         <Function Name="SP_GuardarCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="usuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GuardarCotizacionRecibida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="archivo" Type="varbinary(max)" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_GuardarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="usuario" Type="int" Mode="In" />
@@ -398,6 +408,12 @@
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_IdArchivoCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_IdCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="usuario" Type="varchar" Mode="In" />
           <Parameter Name="contra" Type="varchar" Mode="In" />
@@ -407,7 +423,14 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_SeleccionarCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cotizacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_SeleccionarCotizaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_SeleccionarProveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SeleccionarProveedoresCotizaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cotizacion" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_SeleccionarSolicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipoSolicitud" Type="int" Mode="In" />
         </Function>
@@ -1033,9 +1056,32 @@
           </FunctionImport>
           <FunctionImport Name="SP_SeleccionarProveedores" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarProveedores_Result)" />
           <FunctionImport Name="SP_SolicitudesGlobales" ReturnType="Collection(comprasInventarioModel.SP_SolicitudesGlobales_Result4)" />
-          <FunctionImport Name="SP_GuardarCotizacion">
+          <FunctionImport Name="SP_GuardarCotizacion" ReturnType="Collection(Int32)">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="archivo" Mode="In" Type="Binary" />
+            <Parameter Name="usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_IdArchivoCotizacion" ReturnType="Collection(comprasInventarioModel.SP_IdArchivoCotizacion_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_IdCotizacion" ReturnType="Collection(comprasInventarioModel.SP_IdCotizacion_Result1)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CotizacionXProveedor">
+            <Parameter Name="cotizacion" Mode="In" Type="Int32" />
+            <Parameter Name="pr" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SeleccionarCotizaciones" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarCotizaciones_Result1)" />
+          <FunctionImport Name="SP_GuardarCotizacionRecibida">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="archivo" Mode="In" Type="Binary" />
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SeleccionarProveedoresCotizaciones" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarProveedoresCotizaciones_Result7)">
+          <Parameter Name="cotizacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SeleccionarCotizacion" ReturnType="Collection(comprasInventarioModel.SP_SeleccionarCotizacion_Result)">
+            <Parameter Name="cotizacion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -1173,6 +1219,76 @@
           <Property Type="String" Name="Descripción" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Marca" Nullable="true" MaxLength="30" />
           <Property Type="Double" Name="Cantidad" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_IdCotizacion_Result">
+          <Property Type="Int32" Name="ID_archivos_cotizaciones" Nullable="false" />
+          <Property Type="Int32" Name="id_tipoCotizacion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_IdArchivoCotizacion_Result">
+          <Property Type="Int32" Name="ID_archivos_cotizaciones" Nullable="false" />
+          <Property Type="Int32" Name="id_tipoCotizacion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_IdCotizacion_Result1">
+          <Property Type="Int32" Name="ID_cotizacion" Nullable="false" />
+          <Property Type="Int32" Name="id_usuario" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarCotizaciones_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ARCHIVO" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="FECHA" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarCotizaciones_Result1">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ARCHIVO" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="FECHA" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result">
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="ID_cotizacion_proveedor" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result1">
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="ID_cotizacion_proveedor" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result2">
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="ArchivoRecibido" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result3">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="ArchivoRecibido" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result4">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="ArchivoRecibido" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result5">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="ID_PROVEEDOR" Nullable="false" />
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="ArchivoRecibido" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result6">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="ARCHIVO_RECIBIDO" Nullable="false" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarProveedoresCotizaciones_Result7">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="ID_PROVEEDOR" Nullable="false" />
+          <Property Type="String" Name="PROVEEDOR" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="ARCHIVO_RECIBIDO" Nullable="false" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="SP_SeleccionarCotizacion_Result">
+          <Property Type="Int32" Name="ID_cotizacion" Nullable="false" />
+          <Property Type="Int32" Name="id_usuario" Nullable="false" />
+          <Property Type="Int32" Name="id_archivoCotizacion" Nullable="false" />
+          <Property Type="Int32" Name="id_estado" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1471,6 +1587,55 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_GuardarCotizacion" FunctionName="comprasInventarioModel.Store.SP_GuardarCotizacion" />
+          <FunctionImportMapping FunctionImportName="SP_IdArchivoCotizacion" FunctionName="comprasInventarioModel.Store.SP_IdArchivoCotizacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_IdArchivoCotizacion_Result">
+                <ScalarProperty Name="ID_archivos_cotizaciones" ColumnName="ID_archivos_cotizaciones" />
+                <ScalarProperty Name="id_tipoCotizacion" ColumnName="id_tipoCotizacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_IdCotizacion" FunctionName="comprasInventarioModel.Store.SP_IdCotizacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_IdCotizacion_Result1">
+                <ScalarProperty Name="ID_cotizacion" ColumnName="ID_cotizacion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_CotizacionXProveedor" FunctionName="comprasInventarioModel.Store.SP_CotizacionXProveedor" />
+          <FunctionImportMapping FunctionImportName="SP_SeleccionarCotizaciones" FunctionName="comprasInventarioModel.Store.SP_SeleccionarCotizaciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SeleccionarCotizaciones_Result1">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ARCHIVO" ColumnName="ARCHIVO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GuardarCotizacionRecibida" FunctionName="comprasInventarioModel.Store.SP_GuardarCotizacionRecibida" />
+          <FunctionImportMapping FunctionImportName="SP_SeleccionarProveedoresCotizaciones" FunctionName="comprasInventarioModel.Store.SP_SeleccionarProveedoresCotizaciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SeleccionarProveedoresCotizaciones_Result7">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_PROVEEDOR" ColumnName="ID_PROVEEDOR" />
+                <ScalarProperty Name="PROVEEDOR" ColumnName="PROVEEDOR" />
+                <ScalarProperty Name="ARCHIVO_RECIBIDO" ColumnName="ARCHIVO_RECIBIDO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SeleccionarCotizacion" FunctionName="comprasInventarioModel.Store.SP_SeleccionarCotizacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="comprasInventarioModel.SP_SeleccionarCotizacion_Result">
+                <ScalarProperty Name="ID_cotizacion" ColumnName="ID_cotizacion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_archivoCotizacion" ColumnName="id_archivoCotizacion" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

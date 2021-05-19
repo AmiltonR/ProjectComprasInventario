@@ -46,5 +46,10 @@ namespace ProjectComprasInventario.Views
         {
             this.Close();
         }
+
+        private void dgvSuministros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

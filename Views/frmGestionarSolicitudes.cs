@@ -27,7 +27,7 @@ namespace ProjectComprasInventario.Views
         {
             txtIdSolicitud.Text = dgvSolicitudes.Rows[dgvSolicitudes.CurrentRow.Index].Cells[0].Value.ToString();
             txtSuministro.Text = dgvSolicitudes.Rows[dgvSolicitudes.CurrentRow.Index].Cells[1].Value.ToString();
-            txtCantidad.Text = dgvSolicitudes.Rows[dgvSolicitudes.CurrentRow.Index].Cells[2].Value.ToString();
+            numericUpCantidad.Text = dgvSolicitudes.Rows[dgvSolicitudes.CurrentRow.Index].Cells[2].Value.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace ProjectComprasInventario.Views
             fillGrid();
 
             //Limpiar los controles
-            txtCantidad.Text = String.Empty;
+            numericUpCantidad.Text = String.Empty;
             txtSuministro.Text = String.Empty;
             txtIdSolicitud.Text = String.Empty;
         }

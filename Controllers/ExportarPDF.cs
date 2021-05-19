@@ -92,8 +92,9 @@ namespace ProjectComprasInventario.Controllers
             //GUARDAMOS EL ARCHIVO EN LA BASE DE DATOS
             GuardarPDF guardarPdf = new GuardarPDF();
             guardarPdf.guardarArchivo(fileName, file);
-            AbrirPDF abrirPdf = new AbrirPDF();
-            abrirPdf.abrir(4);
+
+            /*AbrirPDF abrirPdf = new AbrirPDF();
+            abrirPdf.abrir(1);*/
         }
       
     }

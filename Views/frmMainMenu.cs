@@ -82,6 +82,7 @@ namespace ProjectComprasInventario.Views
             {
                 panelUsuarios.Visible = false;
             }
+            
         }
 
         private void mostrarPaneles(Panel subMenu)
@@ -127,6 +128,7 @@ namespace ProjectComprasInventario.Views
 
         private void btnGestionarCotizaciones_Click(object sender, EventArgs e)
         {
+            showChildForm(new frmGestionarCotizacion());
             ocultarPanels();
         }
 
@@ -151,6 +153,21 @@ namespace ProjectComprasInventario.Views
         }
 
         private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaximize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void btnOrdenes_Click_1(object sender, EventArgs e)
         {
 
         }

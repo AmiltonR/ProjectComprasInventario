@@ -19,6 +19,7 @@ namespace ProjectComprasInventario.Views
         DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
         public int[] arrayProveedores = new int[3];
         ExportarPDF exp = new ExportarPDF();
+        GuardarCotizacionXProveedor cotxProv = new GuardarCotizacionXProveedor();
         public frmCrearCotizacion()
         {
             InitializeComponent();
@@ -53,7 +54,7 @@ namespace ProjectComprasInventario.Views
      
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            revisarChecked();
+            guardarCotizacion();
         }
 
         void DataGridViewCurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -63,10 +64,9 @@ namespace ProjectComprasInventario.Views
                 dgvProveedores.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
-        private void revisarChecked()
+        private void guardarCotizacion()
         {
-            /*if (dgvProveedores.Rows[0].Cells[0].Value != null || dgvProveedores.Rows[1].Cells[0].Value != null || dgvProveedores.Rows[2].Cells[0].Value != null)
-            {*/
+            
                 for (int i = 0; i < dgvProveedores.Rows.Count; i++)
                 {
                     bool? isCellChecked = (bool?)dgvProveedores.Rows[i].Cells[0].Value;
@@ -77,6 +77,10 @@ namespace ProjectComprasInventario.Views
                         {
                             arrayProveedores[i] = i + 1;
                         }
+                        else
+                        {
+                        arrayProveedores[i] = 0;
+                        }
                     }
                     else
                      {
@@ -84,21 +88,43 @@ namespace ProjectComprasInventario.Views
                     }
                 }
 
-                exportar();
-           /* }
+            
+            bool bandera = false;
+
+            foreach (int i in arrayProveedores)
+            {
+                if (i != 0)
+                {
+                    bandera = true;
+                } 
+            }
+
+            if (bandera)
+            {
+                exp.guardarPDFBD(dgvSolicitudes);
+                foreach (int i in arrayProveedores)
+                {
+                    if (i != 0)
+                    {
+                        bool b = cotxProv.guardarCotizacionxProveedor(i);
+                        if (b)
+                        {
+                            frmNotificaciones not = new frmNotificaciones();
+                            not.msg = "REGISTRO DE COTIZACION A PROVEEDORES REALIZADA CON ÉXITO";
+                            not.Show();
+                        }
+                    }
+                }
+            }
             else
-            { 
-                MessageBox.Show("Debe seleccionar los proveedores");
-            }*/
+            {
+                frmNotificaciones not = new frmNotificaciones();
+                not.msg = "DEBE SELECCIONAR AL MENOS UN PROVEEDOR";
+                not.Show();
+            }
+
         }
             
-
-           
-
-            /*for (int i = 0; i < dgvProveedores.Rows.Count; i++)
-            {
-                Console.WriteLine(arrayProveedores[i]);
-            }*/
         private void exportar()
         {
             exp.guardarPDFSO(dgvSolicitudes);
@@ -112,6 +138,12 @@ namespace ProjectComprasInventario.Views
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
 
+        }
+
+        private void btnGestionar_Click(object sender, EventArgs e)
+        {
+            MostrarFormularioController mostrar = new MostrarFormularioController();
+            mostrar.showOnMain(this, new frmGestionarCotizacion());
         }
     }
 }

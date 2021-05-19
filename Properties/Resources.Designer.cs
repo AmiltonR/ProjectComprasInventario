@@ -63,6 +63,16 @@ namespace ProjectComprasInventario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap a62c7902_9874_4600_8ac5_ca3636f51fad {
+            get {
+                object obj = ResourceManager.GetObject("a62c7902-9874-4600-8ac5-ca3636f51fad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -146,6 +156,46 @@ namespace ProjectComprasInventario.Properties {
         internal static System.Drawing.Bitmap btn_nuevo {
             get {
                 object obj = ResourceManager.GetObject("btn-nuevo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_orden_compra {
+            get {
+                object obj = ResourceManager.GetObject("btn-orden-compra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_reportes {
+            get {
+                object obj = ResourceManager.GetObject("btn-reportes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_suministros {
+            get {
+                object obj = ResourceManager.GetObject("btn-suministros", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_suministros1 {
+            get {
+                object obj = ResourceManager.GetObject("btn-suministros1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -73,6 +73,7 @@ namespace ProjectComprasInventario.Views
             this.dgvSuministros.Name = "dgvSuministros";
             this.dgvSuministros.Size = new System.Drawing.Size(699, 443);
             this.dgvSuministros.TabIndex = 3;
+            this.dgvSuministros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuministros_CellContentClick);
             this.dgvSuministros.DoubleClick += new System.EventHandler(this.dgvSuministros_DoubleClick);
             // 
             // btnCerrar

@@ -16,5 +16,8 @@ namespace ProjectComprasInventario.Controllers
        public static  String apellidos;
        public static String usuario;
        public static String depart;
+
+        public static int idCotizacion;
+        public static int cotizacionDetalle;
     }
 }

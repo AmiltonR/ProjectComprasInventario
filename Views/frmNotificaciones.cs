@@ -21,6 +21,14 @@ namespace ProjectComprasInventario.Views
         private void frmNotificaciones_Load(object sender, EventArgs e)
         {
             lblMsg.Text = msg;
+            int x = 0;
+
+            //un poco de matematicas, restando los anchos y dividiendo entre 2
+            x = (this.Width / 2) - (lblMsg.Width / 2);
+
+            //asignamos la nueva ubicación
+            lblMsg.Location = new System.Drawing.Point(x, lblMsg.Location.Y);
+            
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

@@ -38,8 +38,8 @@ namespace ProjectComprasInventario.Views
             this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnGestionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitudes)).BeginInit();
             this.SuspendLayout();
@@ -92,7 +92,7 @@ namespace ProjectComprasInventario.Views
             this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnviar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEnviar.Location = new System.Drawing.Point(399, 482);
+            this.btnEnviar.Location = new System.Drawing.Point(482, 593);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(182, 49);
             this.btnEnviar.TabIndex = 5;
@@ -117,11 +117,13 @@ namespace ProjectComprasInventario.Views
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnGuardar.Location = new System.Drawing.Point(709, 606);
+            this.btnGuardar.Image = global::ProjectComprasInventario.Properties.Resources.btn_guardar;
+            this.btnGuardar.Location = new System.Drawing.Point(685, 593);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(158, 49);
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar Cotización";
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -136,22 +138,23 @@ namespace ProjectComprasInventario.Views
             this.label3.TabIndex = 10;
             this.label3.Text = "Elige los proveedores a los que enviarás tu cotización";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(181)))), ((int)(((byte)(207)))));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancelar.Location = new System.Drawing.Point(882, 606);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(140, 49);
-            this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
             // toolTip1
             // 
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
+            // btnGestionar
+            // 
+            this.btnGestionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(181)))), ((int)(((byte)(207)))));
+            this.btnGestionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGestionar.Location = new System.Drawing.Point(864, 593);
+            this.btnGestionar.Name = "btnGestionar";
+            this.btnGestionar.Size = new System.Drawing.Size(158, 49);
+            this.btnGestionar.TabIndex = 11;
+            this.btnGestionar.Text = "Ver Registro de Cotizaciones";
+            this.btnGestionar.UseVisualStyleBackColor = false;
+            this.btnGestionar.Click += new System.EventHandler(this.btnGestionar_Click);
             // 
             // frmCrearCotizacion
             // 
@@ -159,7 +162,7 @@ namespace ProjectComprasInventario.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(71)))));
             this.ClientSize = new System.Drawing.Size(1090, 696);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGestionar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label4);
@@ -189,7 +192,7 @@ namespace ProjectComprasInventario.Views
         public System.Windows.Forms.DataGridView dgvProveedores;
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnGestionar;
     }
 }

@@ -36,17 +36,19 @@ namespace ProjectComprasInventario.Views
             // lblMsg
             // 
             this.lblMsg.AutoSize = true;
-            this.lblMsg.Location = new System.Drawing.Point(174, 123);
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsg.Location = new System.Drawing.Point(102, 119);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(35, 13);
+            this.lblMsg.Size = new System.Drawing.Size(51, 16);
             this.lblMsg.TabIndex = 0;
             this.lblMsg.Text = "label1";
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(177, 181);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(184, 193);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(114, 43);
             this.btnAceptar.TabIndex = 1;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -56,6 +58,7 @@ namespace ProjectComprasInventario.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(480, 281);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblMsg);
@@ -70,8 +73,7 @@ namespace ProjectComprasInventario.Views
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Button btnAceptar;
+        public System.Windows.Forms.Label lblMsg;
     }
 }
